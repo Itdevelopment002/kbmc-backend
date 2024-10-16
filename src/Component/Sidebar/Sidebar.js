@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import { 
   FaTachometerAlt, 
   FaHome, 
@@ -22,123 +23,122 @@ import {
 
 const Sidebar = () => {
   return (
-    <div className="d-flex flex-column p-3 bg-light" style={{ height: "100vh", width: "250px" }}>
-      <h4 className="text-primary">KBMC</h4>
+    <div className="d-flex flex-column p-3 bg-light" style={{ height: "100vh", width: "250px", marginTop:"55px" }}>
+      {/* <h4 className="text-primary">KBMC</h4> */}
       <ul className="nav nav-pills flex-column mb-auto">
         <li className="nav-item">
-          <a href="#" className="nav-link active">
-            <FaTachometerAlt className="me-2" />
+          <NavLink to="/" className="nav-link" activeClassName="active">
+            <FaBell className="me-2" />
             Main Menu
-          </a>
+          </NavLink>
         </li>
         <li className="nav-item">
-          <a href="#" className="nav-link">
+          <NavLink to="/con" className="nav-link" activeClassName="active">
             <FaHome className="me-2" />
             Slider
-          </a>
+          </NavLink>
         </li>
         <li className="nav-item">
-          <a href="#" className="nav-link">
+          <NavLink to="/services" className="nav-link" activeClassName="active">
             <FaServicestack className="me-2" />
             Services
-          </a>
+          </NavLink>
         </li>
         <li className="nav-item">
-          <a href="#" className="nav-link">
+          <NavLink to="/sub-services" className="nav-link" activeClassName="active">
             <FaTasks className="me-2" />
             Sub Services
-          </a>
+          </NavLink>
         </li>
         <li className="nav-item">
-          <a href="#" className="nav-link">
+          <NavLink to="/home-video" className="nav-link" activeClassName="active">
             <FaVideo className="me-2" />
             Home Video
-          </a>
+          </NavLink>
         </li>
         <li className="nav-item">
-          <a href="#" className="nav-link">
+          <NavLink to="/news-update" className="nav-link" activeClassName="active">
             <FaRegNewspaper className="me-2" />
             News Update
-          </a>
+          </NavLink>
         </li>
         <li className="nav-item">
-          <a href="#" className="nav-link">
+          <NavLink to="/tenders" className="nav-link" activeClassName="active">
             <FaFileContract className="me-2" />
             Tenders
-          </a>
+          </NavLink>
         </li>
         <li className="nav-item">
-          <a href="#" className="nav-link">
+          <NavLink to="/gallery" className="nav-link" activeClassName="active">
             <FaRegImages className="me-2" />
             Gallery
-          </a>
+          </NavLink>
         </li>
         <li className="nav-item">
-          <a href="#" className="nav-link">
+          <NavLink to="/govt-links" className="nav-link" activeClassName="active">
             <FaLink className="me-2" />
             Govt. Website Links
-          </a>
+          </NavLink>
         </li>
         <li className="nav-item">
-          <a href="#" className="nav-link">
+          <NavLink to="/departments" className="nav-link" activeClassName="active">
             <FaBuilding className="me-2" />
             Departments
-          </a>
+          </NavLink>
         </li>
         <li className="nav-item">
-          <a href="#" className="nav-link">
+          <NavLink to="/sub-departments" className="nav-link" activeClassName="active">
             <FaUsers className="me-2" />
             Sub Departments
-          </a>
+          </NavLink>
         </li>
         <li className="nav-item">
-          <a href="#" className="nav-link">
+          <NavLink to="/about" className="nav-link" activeClassName="active">
             <FaInfoCircle className="me-2" />
             About KBMC
-          </a>
+          </NavLink>
         </li>
         <li className="nav-item">
-          <a href="#" className="nav-link">
+          <NavLink to="/city-profile" className="nav-link" activeClassName="active">
             <FaCity className="me-2" />
             City Profile
-          </a>
+          </NavLink>
         </li>
         <li className="nav-item">
-          <a href="#" className="nav-link">
+          <NavLink to="/schemes" className="nav-link" activeClassName="active">
             <FaTasks className="me-2" />
             Schemes
-          </a>
+          </NavLink>
         </li>
-        {/* New Items Added Below */}
         <li className="nav-item">
-          <a href="#" className="nav-link">
+          <NavLink to="/user" className="nav-link" activeClassName="active">
             <FaUser className="me-2" />
             User
-          </a>
+          </NavLink>
         </li>
         <li className="nav-item">
-          <a href="#" className="nav-link">
+          <NavLink to="/pp" className="nav-link" activeClassName="active">
             <FaShieldAlt className="me-2" />
             Privacy Policy
-          </a>
+          </NavLink>
         </li>
         <li className="nav-item">
-          <a href="#" className="nav-link">
+          <NavLink to="/tac" className="nav-link" activeClassName="active">
             <FaGavel className="me-2" />
             Terms & Conditions
-          </a>
+          </NavLink>
         </li>
         <li className="nav-item">
-          <a href="#" className="nav-link">
+          <NavLink to="/contact" className="nav-link" activeClassName="active">
             <FaPhone className="me-2" />
             Contact Us
-          </a>
+          </NavLink>
         </li>
         <li className="nav-item">
-          <a href="#" className="nav-link">
+          <NavLink to="/noti" className="nav-link" activeClassName="active">
             <FaBell className="me-2" />
             Notifications
-          </a>
+          </NavLink>
         </li>
       </ul>
     </div>

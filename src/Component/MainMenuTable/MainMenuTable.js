@@ -46,6 +46,12 @@ const MainMenuTable = () => {
 
   return (
     <div className="container mt-4">
+          <nav aria-label="breadcrumb">
+            <ol className="breadcrumb">
+              <li className="breadcrumb-item"><a href="index.php">Home</a></li>
+              <li className="breadcrumb-item active" aria-current="page">Main Menu</li>
+            </ol>
+          </nav>
       <h4>Main Menu</h4>
       <div className="text-end mb-3">
         <Link to="/add-main">

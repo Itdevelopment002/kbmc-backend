@@ -1,0 +1,16 @@
+.nav-link {
+    display: block; /* Ensure the link behaves as a block element */
+    width: 100%; /* Set width to 100% */
+    padding: 10px 15px; /* Add padding for better spacing */
+    color: #000; /* Change text color as needed */
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+    border-radius: 4px; /* Optional: Add border-radius for rounded corners */
+  }
+  
+  .nav-link:hover,
+  .nav-link.active {
+    background-color: blue; /* Set the background color to blue on hover and active */
+    color: #fff; /* Change text color to white on active state for better contrast */
+  }
+  
