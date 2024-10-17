@@ -8,16 +8,13 @@ import Notifications from '../Notifications/Notifications';
 import ContactUs from '../Contactus/Contactus';
 import TermsAndConditions from '../TermsAndConditions/TermsAndConditions';
 import PrivacyPolicy from '../PrivacyPolicy/PrivacyPolicy';
-import Slider from '../Slider/Slider';
-import Services  from '../Services/Services';
-import Add_services from '../Services/Add_services';
-import Add_slider from '../Slider/Add_slider';
-import Home_video from '../Home-Video/Home_video';
-import Add_homvideo from '../Home-Video/Add_homvideo';
-import News from '../NewsUpdate/News';
-import Add_news  from '../NewsUpdate/Add_news';
-import Tenders from '../Tenders/Tender';
-import Add_tender from '../Tenders/Add_tender';
+
+import AddUser from '../AddUser/AddUser';
+import User from '../AddUser/User';
+import { FcDepartment } from 'react-icons/fc';
+import Departments from '../Departments/Departments';
+import AddDepartments from '../Departments/AddDepartments';
+
 
 const Dashboard = () => {
   return (
@@ -35,20 +32,12 @@ const Dashboard = () => {
               <Route path="/contact" element={<ContactUs />} />
               <Route path="/pp" element={<PrivacyPolicy />} />
               <Route path="/tac" element={<TermsAndConditions />} />
-              <Route path="/slider" element={<Slider />} />
-              <Route path="/services" element={<Services />} />
-              <Route path="/add_services" element={<Add_services />} />
-              <Route path="/add_slider" element={<Add_slider />} />
-              <Route path="/add_homvideo" element={<Add_homvideo />} />
-              <Route path="/Home_video" element={<Home_video />} />
-              <Route path="/News" element={<News />} />
-              <Route path="/Add_news" element={<Add_news />} />
-              <Route path="/Tenders" element={<Tenders />} />
-              <Route path="/Add_tender" element={<Add_tender />} />
 
-
-
-
+              <Route path="/adduser" element={<AddUser />} />
+              <Route path="/user" element={<User />} />
+              <Route path="/dep" element={<Departments />} />
+              <Route path="/d" element={<FcDepartment />} />
+              <Route path="/adddep" element={<AddDepartments />} />
 
             </Routes>
           </div>
