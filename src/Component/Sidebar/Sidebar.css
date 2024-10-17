@@ -1,16 +1,58 @@
 .nav-link {
-    display: block; /* Ensure the link behaves as a block element */
-    width: 100%; /* Set width to 100% */
-    padding: 10px 15px; /* Add padding for better spacing */
-    color: #000; /* Change text color as needed */
-    text-decoration: none; /* Remove underline */
-    transition: background-color 0.3s ease; /* Smooth transition for background color */
-    border-radius: 4px; /* Optional: Add border-radius for rounded corners */
-  }
-  
-  .nav-link:hover,
-  .nav-link.active {
-    background-color: blue; /* Set the background color to blue on hover and active */
-    color: #fff; /* Change text color to white on active state for better contrast */
-  }
-  
+  display: block; /* Ensure the link behaves as a block element */
+  width: 100%; /* Set width to 100% */
+  padding: 10px 15px; /* Add padding for better spacing */
+  color: #000; /* Default text color */
+  text-decoration: none; /* Remove underline */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for background and color */
+  border-radius: 0px; /* Optional: Add border-radius for rounded corners */
+  background-color: #f0f0f0; /* Set background color to grey */
+}
+
+.nav-link:hover {
+  background-color: #0d6efd; /* Set the background color to blue on hover */
+  color: #fff; /* Change text color to white on hover for better contrast */
+}
+
+.nav-link.active {
+  background-color: #0d6efd; /* A different shade for the active state */
+  color: #fff; /* Keep the text color white in the active state */
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  background-color: #4CAF50; /* Button color */
+  color: white; /* Text color */
+  padding: 16px; /* Button padding */
+  font-size: 16px; /* Font size */
+  border: none; /* No border */
+  cursor: pointer; /* Pointer cursor */
+}
+
+.dropdown-content {
+  display: none; /* Hidden by default */
+  position: absolute; /* Position it below the dropdown */
+  background-color: #f9f9f9; /* Background color */
+  min-width: 160px; /* Minimum width */
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* Box shadow */
+  z-index: 1; /* Stack on top */
+}
+
+.dropdown:hover .dropdown-content {
+  display: block; /* Show on hover */
+}
+
+.dropbtn::after {
+  content: '';
+  border: solid transparent; /* Create a triangle */
+  border-width: 5px 5px 0 5px; /* Triangle size */
+  border-top-color: white; /* Color of the triangle */
+  position: absolute; /* Position the arrow */
+  right: 10px; /* Position from the right */
+  top: 20px; /* Position from the top */
+  pointer-events: none; /* Ignore pointer events */
+}
