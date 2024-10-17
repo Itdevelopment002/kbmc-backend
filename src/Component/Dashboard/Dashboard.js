@@ -8,6 +8,11 @@ import Notifications from '../Notifications/Notifications';
 import ContactUs from '../Contactus/Contactus';
 import TermsAndConditions from '../TermsAndConditions/TermsAndConditions';
 import PrivacyPolicy from '../PrivacyPolicy/PrivacyPolicy';
+import AddUser from '../AddUser/AddUser';
+import User from '../AddUser/User';
+import { FcDepartment } from 'react-icons/fc';
+import Departments from '../Departments/Departments';
+import AddDepartments from '../Departments/AddDepartments';
 
 const Dashboard = () => {
   return (
@@ -25,6 +30,11 @@ const Dashboard = () => {
               <Route path="/contact" element={<ContactUs />} />
               <Route path="/pp" element={<PrivacyPolicy />} />
               <Route path="/tac" element={<TermsAndConditions />} />
+              <Route path="/adduser" element={<AddUser />} />
+              <Route path="/user" element={<User />} />
+              <Route path="/dep" element={<Departments />} />
+              <Route path="/d" element={<FcDepartment />} />
+              <Route path="/adddep" element={<AddDepartments />} />
             </Routes>
           </div>
         </div>
