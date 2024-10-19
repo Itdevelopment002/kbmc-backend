@@ -52,9 +52,9 @@ const Tender = () => {
     };
 
     return (
-        <div className="page-wrapper">
 
-            <div className="content">
+        <div className="page-wrapper d-flex">
+            <div className="content flex-fill">
                 <nav aria-label="breadcrumb">
                     <ol className="breadcrumb">
                         <li className="breadcrumb-item"><Link to="/">Home</Link></li>
@@ -69,8 +69,8 @@ const Tender = () => {
                                     <div className="col-sm-4 col-3">
                                         <h4 className="page-title">Tender</h4>
                                     </div>
-                                    <div className="col-sm-8 col-9 text-end mb-3 ">
-                                        <Link to="/Add_tender" className="btn btn-primary btn-rounded float-right">
+                                    <div className="col-sm-8 col-9 text-end mb-3">
+                                        <Link to="/Add_tender" className="btn btn-primary btn-rounded float-end">
                                             <i className="fa fa-plus"></i> + Add Tender
                                         </Link>
                                     </div>
@@ -80,7 +80,7 @@ const Tender = () => {
                                         <thead>
                                             <tr>
                                                 <th width="10%">Sr. No.</th>
-                                                <th>Tender Description</th>
+                                                <th >Tender Description</th>
                                                 <th>Status</th>
                                                 <th width="15%">Action</th>
                                             </tr>
@@ -169,7 +169,6 @@ const Tender = () => {
                     </Modal>
                 )}
             </div>
-
         </div>
     );
 };
