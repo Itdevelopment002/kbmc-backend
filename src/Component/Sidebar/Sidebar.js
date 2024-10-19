@@ -17,7 +17,7 @@ import {
   MdNotifications,
 } from "react-icons/md";
 import { BsFileEarmarkText } from "react-icons/bs";
-import Sid from "./Sidebar.css";
+import "./Sidebar.css";
 
 import { FaImage } from "react-icons/fa";
 
@@ -30,7 +30,7 @@ const Sidebar = () => {
   const [showNotifications, setShowNotifications] = useState(false);
 
   return (
-    <div className="sidebar">
+    <div className="sidebar" style={{backgroundColor:"#f0f0f0"}}>
       <ul className="nav flex-column">
         <li className="nav-item">
           <NavLink
@@ -350,7 +350,7 @@ const Sidebar = () => {
             <ul className="nav flex-column ms-3">
               <li className="nav-item">
                 <NavLink
-                  to="/property-holder"
+                  to="/property_holder"
                   className="nav-link"
                   activeClassName="active"
                 >
@@ -422,7 +422,7 @@ const Sidebar = () => {
               </li>
               <li className="nav-item">
                 <NavLink
-                  to="/ponds-talao"
+                  to="/ponds"
                   className="nav-link"
                   activeClassName="active"
                 >
@@ -431,7 +431,7 @@ const Sidebar = () => {
               </li>
               <li className="nav-item">
                 <NavLink
-                  to="/fire-station"
+                  to="/firestation"
                   className="nav-link"
                   activeClassName="active"
                 >

@@ -10,12 +10,12 @@ const Header = () => {
   const dropdownRef = useRef(null);
 
   const toggleNotifications = () => {
-    setNotificationsVisible(!notificationsVisible);
+    setNotificationsVisible(prevState => !prevState);
   };
 
   const toggleDropdown = (event) => {
     event.stopPropagation(); // Prevent event from bubbling up
-    setDropdownVisible(!dropdownVisible);
+    setDropdownVisible(prevState => !prevState);
   };
 
   const handleClickOutside = (event) => {
