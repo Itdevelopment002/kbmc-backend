@@ -1,105 +1,193 @@
-import React from 'react';
-
+import React, { useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify'; // Import ToastContainer and toast
+import 'react-toastify/dist/ReactToastify.css'; // Import the CSS
 
 const AddPrivateHospital = () => {
+  const [hospitalName, setHospitalName] = useState('');
+  const [division, setDivision] = useState('West');
+  const [principalDoctor, setPrincipalDoctor] = useState('');
+  const [address, setAddress] = useState('');
+  const [phoneNo, setPhoneNo] = useState('');
+  const [mobileNo, setMobileNo] = useState('');
+  const [beds, setBeds] = useState('');
+  const [facilities, setFacilities] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const hospitalData = {
+      hospitalName,
+      division,
+      principalDoctor,
+      address,
+      phoneNo,
+      mobileNo,
+      beds,
+      facilities,
+    };
+
+    try {
+      const response = await fetch('http://localhost:5000/api/private-hospital', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(hospitalData),
+      });
+
+      if (response.ok) {
+        toast.success('Hospital added successfully!'); // Show success toast
+        // Reset form fields
+        setHospitalName('');
+        setDivision('West');
+        setPrincipalDoctor('');
+        setAddress('');
+        setPhoneNo('');
+        setMobileNo('');
+        setBeds('');
+        setFacilities('');
+      } else {
+        toast.error('Failed to add hospital. Please try again.'); // Show error toast
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast.error('Error submitting form. Please try again.'); // Show error toast on catch
+    }
+  };
+
   return (
     <div className="page-wrapper">
-     
       <div className="content">
-        <ol className="breadcrumb">
-          <li className="breadcrumb-item">
-            <a href="/">Home</a>
-          </li>
-          <li className="breadcrumb-item active" aria-current="page">
-            <a href="/private-hospital">Private Hospital</a>
-          </li>
-          <li className="breadcrumb-item active" aria-current="page">
-            Add Private Hospital
-          </li>
-        </ol>
-        <div className="row">
-          <div className="col-lg-12">
-            <div className="card-box">
-              <div className="card-block">
-                <div className="row mb-4">
-                  <div className="col">
-                    <h4 className="page-title">Add Private Hospital</h4>
-                  </div>
-                </div>
-                <form action="#">
-                  <div className="row">
-                    <div className="col-md-5 mb-3">
-                      <div className="form-group">
-                        <label>Hospital Name</label>
-                        <input type="text" className="form-control" placeholder="Enter hospital name" />
-                      </div>
-                    </div>
-                    <div className="col-md-2 mb-3">
-                      <div className="form-group">
-                        <label>Division</label>
-                        <select className="form-control">
-                          <option>West</option>
-                          <option>East</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div className="col-md-5 mb-3">
-                      <div className="form-group">
-                        <label>Principal Doctor's Specialty</label>
-                        <input type="text" className="form-control" placeholder="Enter specialty" />
-                      </div>
-                    </div>
-                    <div className="col-md-6 mb-3">
-                      <div className="form-group">
-                        <label>Address</label>
-                        <input type="text" className="form-control" placeholder="Enter address" />
-                      </div>
-                    </div>
-                    <div className="col-md-3 mb-3">
-                      <div className="form-group">
-                        <label>Phone No.</label>
-                        <input type="text" className="form-control" placeholder="Enter phone number" />
-                      </div>
-                    </div>
-                    <div className="col-md-3 mb-3">
-                      <div className="form-group">
-                        <label>Mobile No.</label>
-                        <input type="text" className="form-control" placeholder="Enter mobile number" />
-                      </div>
-                    </div>
-                    <div className="col-md-2 mb-3">
-                      <div className="form-group">
-                        <label>No. of Beds</label>
-                        <input type="text" className="form-control" placeholder="Enter number of beds" />
-                      </div>
-                    </div>
-                    <div className="col-md-4 mb-3">
-                      <div className="form-group">
-                        <label>Facilities Provided</label>
-                        <input type="text" className="form-control" placeholder="Enter facilities" />
-                      </div>
-                    </div>
-                  </div>
-                  <button type="submit" className="btn btn-primary">Submit</button>
-                </form>
+        <form onSubmit={handleSubmit}>
+          <div className="row">
+            {/* Hospital Name */}
+            <div className="col-md-5 mb-3">
+              <div className="form-group">
+                <label>Hospital Name</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Enter hospital name"
+                  value={hospitalName}
+                  onChange={(e) => setHospitalName(e.target.value)}
+                  required
+                />
               </div>
             </div>
-          </div>
-        </div>
-        {/* Delete Modal */}
-        <div className="modal delete_modal fade text-center" id="deleteModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div className="modal-dialog modal-dialog-centered" role="document">
-            <div className="modal-content">
-              <div className="modal-body">
-                <h4>Are you sure you want to delete this item?</h4>
-              </div>
-              <div className="modal-footer text-center">
-                <button type="button" className="btn btn-primary btn-lg" data-dismiss="modal">Close</button>
-                <button type="button" className="btn btn-danger btn-lg">Delete</button>
+
+            {/* Division */}
+            <div className="col-md-2 mb-3">
+              <div className="form-group">
+                <label>Division</label>
+                <select
+                  className="form-control"
+                  value={division}
+                  onChange={(e) => setDivision(e.target.value)}
+                  required
+                >
+                  <option>West</option>
+                  <option>East</option>
+                </select>
               </div>
             </div>
+
+            {/* Principal Doctor */}
+            <div className="col-md-5 mb-3">
+              <div className="form-group">
+                <label>Principal Doctor's Name</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Enter principal doctor's name"
+                  value={principalDoctor}
+                  onChange={(e) => setPrincipalDoctor(e.target.value)}
+                  required
+                />
+              </div>
+            </div>
+
+            {/* Address */}
+            <div className="col-md-6 mb-3">
+              <div className="form-group">
+                <label>Address</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Enter address"
+                  value={address}
+                  onChange={(e) => setAddress(e.target.value)}
+                  required
+                />
+              </div>
+            </div>
+
+            {/* Phone No. */}
+            <div className="col-md-3 mb-3">
+              <div className="form-group">
+                <label>Phone No.</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Enter phone number"
+                  value={phoneNo}
+                  onChange={(e) => setPhoneNo(e.target.value)}
+                  required
+                />
+              </div>
+            </div>
+
+            {/* Mobile No. */}
+            <div className="col-md-3 mb-3">
+              <div className="form-group">
+                <label>Mobile No.</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Enter mobile number"
+                  value={mobileNo}
+                  onChange={(e) => setMobileNo(e.target.value)}
+                  required
+                />
+              </div>
+            </div>
+
+            {/* Number of Beds */}
+            <div className="col-md-2 mb-3">
+              <div className="form-group">
+                <label>No. of Beds</label>
+                <input
+                  type="number"
+                  className="form-control"
+                  placeholder="Enter number of beds"
+                  value={beds}
+                  onChange={(e) => setBeds(e.target.value)}
+                  required
+                />
+              </div>
+            </div>
+
+            {/* Facilities Provided */}
+            <div className="col-md-4 mb-3">
+              <div className="form-group">
+                <label>Facilities Provided</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Enter facilities"
+                  value={facilities}
+                  onChange={(e) => setFacilities(e.target.value)}
+                  required
+                />
+              </div>
+            </div>
+
+            {/* Submit Button */}
+            <div className="col-md-12">
+              <button type="submit" className="btn btn-primary">
+                Submit
+              </button>
+            </div>
           </div>
-        </div>
+        </form>
+        <ToastContainer /> {/* Add ToastContainer for notifications */}
       </div>
     </div>
   );

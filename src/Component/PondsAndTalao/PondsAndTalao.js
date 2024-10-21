@@ -1,40 +1,77 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Modal, Button, Form } from 'react-bootstrap';
+import { ToastContainer, toast } from 'react-toastify'; // Import ToastContainer and toast
+import 'react-toastify/dist/ReactToastify.css'; // Import the CSS
 
 const PondsAndTalao = () => {
     const [isDeleteModalOpen, setDeleteModalOpen] = useState(false);
-    const [isEditModalOpen, setEditModalOpen] = useState(false); // State for edit modal
+    const [isEditModalOpen, setEditModalOpen] = useState(false);
     const [selectedRow, setSelectedRow] = useState(null);
-    const [editData, setEditData] = useState({ id: '', name: '' }); // State for editing data
+    const [editData, setEditData] = useState({ id: '', name: '' });
+    const [pondsData, setPondsData] = useState([]);
+
+    // Fetch ponds data when the component mounts
+    useEffect(() => {
+        fetchPondsData();
+    }, []);
+
+    const fetchPondsData = async () => {
+        try {
+            const response = await fetch('http://localhost:5000/api/ponds'); // Replace with your actual endpoint
+            if (!response.ok) throw new Error('Network response was not ok');
+            const data = await response.json();
+            setPondsData(data);
+        } catch (error) {
+            console.error('Error fetching ponds data:', error);
+            toast.error('Failed to fetch ponds data.');
+        }
+    };
 
     const handleDeleteClick = (row) => {
         setSelectedRow(row);
         setDeleteModalOpen(true);
     };
 
-    const handleDeleteConfirm = () => {
-        // Add logic to delete the selected row
-        console.log('Deleting row:', selectedRow);
-        setDeleteModalOpen(false);
+    const handleDeleteConfirm = async () => {
+        try {
+            await fetch(`http://localhost:5000/api/ponds/${selectedRow.id}`, {
+                method: 'DELETE',
+            });
+            toast.success(`Pond ${selectedRow.name} deleted successfully.`);
+            fetchPondsData();
+        } catch (error) {
+            console.error('Error deleting pond:', error);
+            toast.error('Failed to delete pond.');
+        } finally {
+            setDeleteModalOpen(false);
+            setSelectedRow(null);
+        }
     };
 
     const handleEditModalOpen = (row) => {
-        setEditData(row); // Set the selected row data for editing
+        setEditData(row);
         setEditModalOpen(true);
     };
 
-    const handleEditSubmit = () => {
-        console.log(`Pond with ID ${editData.id} updated with name: ${editData.name}`);
-        setEditModalOpen(false);
-        // Add logic to update the data in your state or database here
+    const handleEditSubmit = async () => {
+        try {
+            await fetch(`http://localhost:5000/api/ponds/${editData.id}`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    name: editData.name,
+                }),
+            });
+            toast.success(`Pond ${editData.name} updated successfully.`);
+            fetchPondsData();
+        } catch (error) {
+            console.error('Error updating pond:', error);
+            toast.error('Failed to update pond.');
+        } finally {
+            setEditModalOpen(false);
+        }
     };
-
-    const pondsData = [
-        { id: 1, name: 'Mahalaxmi Talao' },
-        { id: 2, name: 'Badlapur Gaon Talao' },
-        { id: 3, name: 'Gaondevi Talao' },
-    ];
 
     return (
         <div className="page-wrapper">
@@ -50,12 +87,12 @@ const PondsAndTalao = () => {
                         <div className="card-box">
                             <div className="card-block">
                                 <div className="row">
-                                    <div className="col-sm-4 col-3 ">
+                                    <div className="col-sm-4 col-3">
                                         <h4 className="page-title">Ponds and Talao</h4>
                                     </div>
                                     <div className="col-sm-8 col-9 text-end m-b-20">
                                         <Link to="/add-ponds" className="btn btn-primary btn-rounded float-right mb-2" style={{ borderRadius: "100px" }}>
-                                            <i className="fa fa-plus"></i>+ Add Ponds and Talao
+                                            <i className="fa fa-plus"></i> + Add Ponds and Talao
                                         </Link>
                                     </div>
                                 </div>
@@ -69,9 +106,9 @@ const PondsAndTalao = () => {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {pondsData.map((row) => (
+                                            {pondsData.map((row, index) => (
                                                 <tr key={row.id}>
-                                                    <td>{row.id.toString().padStart(2, '0')}</td>
+                                                    <td>{index + 1}</td>
                                                     <td>{row.name}</td>
                                                     <td>
                                                         <button
@@ -97,26 +134,10 @@ const PondsAndTalao = () => {
                     </div>
                 </div>
 
-                <div>
-                    <ul className="pagination">
-                        <li className="page-item disabled">
-                            <a className="page-link" href="#" tabIndex="-1">Previous</a>
-                        </li>
-                        <li className="page-item"><a className="page-link" href="#">1</a></li>
-                        <li className="page-item active">
-                            <a className="page-link" href="#">2 <span className="sr-only"></span></a>
-                        </li>
-                        <li className="page-item"><a className="page-link" href="#">3</a></li>
-                        <li className="page-item">
-                            <a className="page-link" href="#">Next</a>
-                        </li>
-                    </ul>
-                </div>
-
                 {/* Delete Modal */}
                 <Modal show={isDeleteModalOpen} onHide={() => setDeleteModalOpen(false)} centered>
                     <Modal.Body>
-                        <h4>Are you sure you want to delete this item?</h4>
+                        <h4>Are you sure you want to delete {selectedRow?.name}?</h4>
                     </Modal.Body>
                     <Modal.Footer>
                         <Button variant="secondary" onClick={() => setDeleteModalOpen(false)}>
@@ -154,6 +175,8 @@ const PondsAndTalao = () => {
                         </Button>
                     </Modal.Footer>
                 </Modal>
+
+                <ToastContainer /> {/* Add ToastContainer for notifications */}
             </div>
         </div>
     );

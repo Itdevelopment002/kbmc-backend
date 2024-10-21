@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
+import { ToastContainer, toast } from 'react-toastify'; // Import ToastContainer and toast
+import 'react-toastify/dist/ReactToastify.css'; // Import the CSS
 
 const PrivateHospital = () => {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
@@ -16,65 +18,91 @@ const PrivateHospital = () => {
     beds: '',
     facilities: ''
   });
+  const [hospitals, setHospitals] = useState([]);
 
-  const hospitals = [
-    {
-      id: 1,
-      name: 'K. B. S. Dube Hospital, KBMC',
-      division: 'East',
-      specialty: 'Dr. Rajesh Ankur, MBBS.',
-      address: 'Near Adharsh Vidhyamandhir, Station Road, Kulgaon Badlapur.',
-      phone: '0251-2690920',
-      mobile: '8380007056',
-      beds: '05',
-      facilities: 'Outpatient, leprosy, Tuberculosis treatment, blood test, vaccination. hosp.kbmc@gmail.com'
-    },
-    {
-      id: 2,
-      name: 'Primary Health Center Badlapur Village (PHC)',
-      division: 'West',
-      specialty: 'Dr. Prashant Kanojiya / Dr. Ashwini Kodilkar',
-      address: 'Badlapur Village',
-      phone: '0251-2665915',
-      mobile: '9822740508',
-      beds: '06',
-      facilities: 'Outpatient department, maternity facility, family planning surgery facility'
+  // Fetch hospitals when the component mounts
+  useEffect(() => {
+    fetchHospitals();
+  }, []);
+
+  const fetchHospitals = async () => {
+    try {
+      const response = await fetch('http://localhost:5000/api/private-hospital');
+      const data = await response.json();
+      setHospitals(data);
+    } catch (error) {
+      console.error('Error fetching hospitals:', error);
     }
-  ];
+  };
 
   const handleDeleteModalOpen = (hospital) => {
-    console.log('Opening delete modal for:', hospital);
     setSelectedHospital(hospital);
     setShowDeleteModal(true);
   };
 
   const handleEditModalOpen = (hospital) => {
-    console.log('Opening edit modal for:', hospital);
-    setEditData(hospital);
+    setEditData({ // Set editData to the hospital's current data
+      id: hospital.id,
+      name: hospital.hospital_name,
+      division: hospital.division,
+      specialty: hospital.principal_doctor,
+      address: hospital.address,
+      phone: hospital.phone_no,
+      mobile: hospital.mobile_no,
+      beds: hospital.beds,
+      facilities: hospital.facility,
+    });
     setShowEditModal(true);
   };
 
-  const handleDelete = () => {
-    console.log(`Hospital ${selectedHospital.name} deleted.`);
-    // Here you would usually remove the hospital from the list
-    setShowDeleteModal(false);
-    setSelectedHospital(null);
+  const handleDelete = async () => {
+    try {
+      await fetch(`http://localhost:5000/api/private-hospital/${selectedHospital.id}`, {
+        method: 'DELETE',
+      });
+      toast.success(`Hospital ${selectedHospital.hospital_name} deleted successfully.`);
+      fetchHospitals();
+    } catch (error) {
+      console.error('Error deleting hospital:', error);
+      toast.error('Failed to delete hospital.');
+    } finally {
+      setShowDeleteModal(false);
+      setSelectedHospital(null);
+    }
   };
 
-  const handleEditSubmit = () => {
-    console.log(`Hospital ${editData.name} updated with:`, editData);
-    // Here you would typically update the hospital's data in your list
-    setShowEditModal(false);
+  const handleEditSubmit = async () => {
+    try {
+      await fetch(`http://localhost:5000/api/private-hospital/${editData.id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          hospitalName: editData.name,
+          division: editData.division,
+          principalDoctor: editData.specialty,
+          address: editData.address,
+          phoneNo: editData.phone,
+          mobileNo: editData.mobile,
+          beds: editData.beds,
+          facilities: editData.facilities,
+        }),
+      });
+      toast.success(`Hospital ${editData.name} updated successfully.`);
+      fetchHospitals();
+    } catch (error) {
+      console.error('Error updating hospital:', error);
+      toast.error('Failed to update hospital.');
+    } finally {
+      setShowEditModal(false);
+    }
   };
 
   const handleCloseDeleteModal = () => {
     setShowDeleteModal(false);
-    console.log('Closed delete modal');
   };
 
   const handleCloseEditModal = () => {
     setShowEditModal(false);
-    console.log('Closed edit modal');
   };
 
   return (
@@ -120,14 +148,14 @@ const PrivateHospital = () => {
                           {hospitals.map((hospital, index) => (
                             <tr key={hospital.id}>
                               <td>{index + 1}</td>
-                              <td>{hospital.name}</td>
+                              <td>{hospital.hospital_name}</td>
                               <td>{hospital.division}</td>
-                              <td>{hospital.specialty}</td>
+                              <td>{hospital.principal_doctor}</td>
                               <td>{hospital.address}</td>
-                              <td>{hospital.phone}</td>
-                              <td>{hospital.mobile}</td>
+                              <td>{hospital.phone_no}</td>
+                              <td>{hospital.mobile_no}</td>
                               <td>{hospital.beds}</td>
-                              <td>{hospital.facilities}</td>
+                              <td>{hospital.facility}</td>
                               <td>
                                 <button className="btn btn-success btn-sm m-t-10" onClick={() => handleEditModalOpen(hospital)}>Edit</button>
                                 <button className="btn btn-danger btn-sm m-t-10 mx-2" onClick={() => handleDeleteModalOpen(hospital)}>Delete</button>
@@ -136,21 +164,6 @@ const PrivateHospital = () => {
                           ))}
                         </tbody>
                       </table>
-                    </div>
-                    <div className="mt-4">
-                      <ul className="pagination">
-                        <li className="page-item disabled">
-                          <a className="page-link" href="#" tabIndex="-1">Previous</a>
-                        </li>
-                        <li className="page-item"><a className="page-link" href="#">1</a></li>
-                        <li className="page-item active">
-                          <a className="page-link" href="#">2 <span className="sr-only"></span></a>
-                        </li>
-                        <li className="page-item"><a className="page-link" href="#">3</a></li>
-                        <li className="page-item">
-                          <a className="page-link" href="#">Next</a>
-                        </li>
-                      </ul>
                     </div>
                   </div>
                 </div>
@@ -161,7 +174,7 @@ const PrivateHospital = () => {
           {/* Delete Modal */}
           <Modal show={showDeleteModal} onHide={handleCloseDeleteModal} centered>
             <Modal.Body>
-              <h4>Are you sure you want to delete {selectedHospital?.name}?</h4>
+              <h4>Are you sure you want to delete {selectedHospital?.hospital_name}?</h4>
             </Modal.Body>
             <Modal.Footer className="text-center">
               <Button variant="secondary" onClick={handleCloseDeleteModal}>Close</Button>
@@ -244,9 +257,11 @@ const PrivateHospital = () => {
             </Modal.Body>
             <Modal.Footer>
               <Button variant="secondary" onClick={handleCloseEditModal}>Close</Button>
-              <Button variant="primary " onClick={handleEditSubmit}>Save Changes</Button>
+              <Button variant="primary" onClick={handleEditSubmit}>Save changes</Button>
             </Modal.Footer>
           </Modal>
+
+          <ToastContainer /> {/* Add ToastContainer for notifications */}
         </div>
       </div>
     </div>
