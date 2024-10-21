@@ -5,12 +5,48 @@ const PublicDis = () => {
     { id: 1, name: 'General Admin Department' },
     { id: 2, name: 'Audit Department' },
     { id: 3, name: 'Tax Department' },
+    { id: 4, name: 'Finance Department' },
+    { id: 5, name: 'HR Department' },
   ]);
 
   const [newDepartment, setNewDepartment] = useState('');
   const [selectedDepartment, setSelectedDepartment] = useState(null);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+
+  // Pagination state
+  const [currentPage, setCurrentPage] = useState(1);
+  const departmentsPerPage = 3;
+
+  // Get current departments based on page
+  const indexOfLastDepartment = currentPage * departmentsPerPage;
+  const indexOfFirstDepartment = indexOfLastDepartment - departmentsPerPage;
+  const currentDepartments = departments.slice(indexOfFirstDepartment, indexOfLastDepartment);
+
+  const totalPages = Math.ceil(departments.length / departmentsPerPage);
+
+  // Handle page click
+  const handlePageClick = (page) => {
+    setCurrentPage(page);
+  };
+
+  // Handle Next button
+  const handleNextClick = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  // Handle Previous button
+  const handlePreviousClick = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  const handleAdd = (id) => {
+    console.log('Add button clicked for department:', id);
+  };
 
   const handleAddDepartment = (e) => {
     e.preventDefault();
@@ -24,7 +60,7 @@ const PublicDis = () => {
   const handleEditDepartment = (e) => {
     e.preventDefault();
     if (selectedDepartment) {
-      const updatedDepartments = departments.map(department =>
+      const updatedDepartments = departments.map((department) =>
         department.id === selectedDepartment.id
           ? { ...department, name: selectedDepartment.name }
           : department
@@ -36,7 +72,7 @@ const PublicDis = () => {
   };
 
   const handleDeleteDepartment = () => {
-    setDepartments(departments.filter(department => department.id !== selectedDepartment.id));
+    setDepartments(departments.filter((department) => department.id !== selectedDepartment.id));
     setIsDeleteModalOpen(false);
     setSelectedDepartment(null);
   };
@@ -59,16 +95,11 @@ const PublicDis = () => {
                     <div className="col-sm-4 col-3">
                       <h4 className="page-title">Public Disclosure</h4>
                     </div>
-                    <div className="col-sm-8 col-9 text-right">
-                      <button className="btn btn-primary btn-rounded float-right" onClick={() => setIsEditModalOpen(true)}>
-                        <i className="fa fa-plus"></i> Add Public Disclosure
-                      </button>
-                    </div>
                   </div>
                   <hr />
                   <div className="card-block">
                     <form onSubmit={handleAddDepartment}>
-                      <div className="form-group row">
+                      <div className="form-group row my-3">
                         <label className="col-form-label col-md-2">Department Name <span className="text-danger">*</span></label>
                         <div className="col-md-4">
                           <input
@@ -85,7 +116,7 @@ const PublicDis = () => {
                     </form>
                   </div>
                   <div className="table-responsive">
-                    <table className="table table-bordered m-b-0">
+                    <table className="table table-bordered m-b-0 mt-3">
                       <thead>
                         <tr>
                           <th width="10%">Sr. No.</th>
@@ -94,18 +125,54 @@ const PublicDis = () => {
                         </tr>
                       </thead>
                       <tbody>
-                        {departments.map((department, index) => (
+                        {currentDepartments.map((department, index) => (
                           <tr key={department.id}>
-                            <td>{index + 1}</td>
+                            <td>{indexOfFirstDepartment + index + 1}</td>
                             <td>{department.name}</td>
                             <td>
-                              <button className="btn btn-success btn-sm m-t-10" onClick={() => { setSelectedDepartment(department); setIsEditModalOpen(true); }}>Edit</button>
-                              <button className="btn btn-danger btn-sm m-t-10" onClick={() => { setSelectedDepartment(department); setIsDeleteModalOpen(true); }}>Delete</button>
+                              <a href="/GeneralDepartment" className="btn btn-primary btn-sm m-t-10 mx-1" onClick={() => handleAdd(department.id)}>Add</a>
+                              <button
+                                className="btn btn-success btn-sm m-t-10 mx-1"
+                                onClick={() => {
+                                  setSelectedDepartment(department);
+                                  setIsEditModalOpen(true);
+                                }}
+                              >
+                                Edit
+                              </button>
+                              <button
+                                className="btn btn-danger btn-sm m-t-10 mx-1"
+                                onClick={() => {
+                                  setSelectedDepartment(department);
+                                  setIsDeleteModalOpen(true);
+                                }}
+                              >
+                                Delete
+                              </button>
                             </td>
                           </tr>
                         ))}
                       </tbody>
                     </table>
+                  </div>
+
+                  {/* Pagination */}
+                  <div className="mt-4">
+                    <ul className="pagination">
+                      <li className={`page-item ${currentPage === 1 ? 'disabled' : ''}`}>
+                        <a className="page-link" href="#!" onClick={handlePreviousClick}>Previous</a>
+                      </li>
+                      {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                        <li key={page} className={`page-item ${currentPage === page ? 'active' : ''}`}>
+                          <a className="page-link" href="#!" onClick={() => handlePageClick(page)}>
+                            {page}
+                          </a>
+                        </li>
+                      ))}
+                      <li className={`page-item ${currentPage === totalPages ? 'disabled' : ''}`}>
+                        <a className="page-link" href="#!" onClick={handleNextClick}>Next</a>
+                      </li>
+                    </ul>
                   </div>
                 </div>
               </div>
@@ -114,15 +181,15 @@ const PublicDis = () => {
 
           {/* Delete Modal */}
           {isDeleteModalOpen && (
-            <div className="modal delete_modal fade text-center" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div className="modal fade show d-block" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}>
               <div className="modal-dialog modal-dialog-centered" role="document">
                 <div className="modal-content">
                   <div className="modal-body">
                     <h4>Are you sure you want to delete {selectedDepartment?.name}?</h4>
                   </div>
-                  <div className="modal-footer text-center">
-                    <button type="button" className="btn btn-primary btn-lg" onClick={() => setIsDeleteModalOpen(false)}>Close</button>
-                    <button type="button" className="btn btn-danger btn-lg" onClick={handleDeleteDepartment}>Delete</button>
+                  <div className="modal-footer">
+                    <button type="button" className="btn btn-secondary" onClick={() => setIsDeleteModalOpen(false)}>Close</button>
+                    <button type="button" className="btn btn-danger" onClick={handleDeleteDepartment}>Delete</button>
                   </div>
                 </div>
               </div>
@@ -131,30 +198,29 @@ const PublicDis = () => {
 
           {/* Edit Modal */}
           {isEditModalOpen && (
-            <div className="modal delete_modal fade text-center" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div className="modal fade show d-block" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}>
               <div className="modal-dialog modal-dialog-centered" role="document">
                 <div className="modal-content">
-                  <div className="modal-body text-left">
+                  <div className="modal-body">
                     <h4>Edit Department</h4>
                     <form onSubmit={handleEditDepartment}>
-                      <div className="form-group row">
-                        <label className="col-form-label col-md-12">Department Name</label>
-                        <div className="col-md-12">
-                          <input
-                            type="text"
-                            className="form-control form-control-lg"
-                            value={selectedDepartment?.name || ''}
-                            onChange={(e) => setSelectedDepartment({ ...selectedDepartment, name: e.target.value })}
-                          />
-                        </div>
-                        <div className="col-md-2 m-t-10">
-                          <input type="submit" className="btn btn-primary" value="Submit" />
-                        </div>
-                        <div className="col-md-2 m-t-10">
-                          <button type="button" className="btn btn-danger" onClick={() => setIsEditModalOpen(false)}>Cancel</button>
-                        </div>
+                      <div className="form-group my-3">
+                        <label>Department Name</label>
+                        <input
+                          type="text"
+                          className="form-control mt-2"
+                          value={selectedDepartment?.name || ''}
+                          onChange={(e) =>
+                            setSelectedDepartment({ ...selectedDepartment, name: e.target.value })
+                          }
+                        />
                       </div>
+                     
                     </form>
+                  </div>
+                  <div className="modal-footer">
+                  <button type="submit" className="btn btn-primary">Save Changes</button>
+                    <button type="button" className="btn btn-secondary" onClick={() => setIsEditModalOpen(false)}>Close</button>
                   </div>
                 </div>
               </div>
