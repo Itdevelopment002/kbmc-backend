@@ -71,7 +71,9 @@ import Add_electedwings from '../About_KBMC/ElectedWinggs/Add_electedwings';
 import History from '../About_KBMC/History/History';
 import Add_history from '../About_KBMC/History/Add_history';
 import Add_ceo from '../About_KBMC/History/Add_ceo';
-
+import GeneralDepartment from '../Subservices/PublicDisclosure/Generaladmindepartment';
+import Add_gernaldepyear from '../Subservices/PublicDisclosure/Add_gernaldepyear';
+import Generaladmindepartment from '../Subservices/PublicDisclosure/Generaladmindepartment';
 const Dashboard = () => {
   return (
     <Router>
@@ -136,11 +138,11 @@ const Dashboard = () => {
               <Route path="/RTS" element={<RTS />} />
               <Route path="/Add_RTS" element={<Add_RTS />} />
               <Route path="/Add_RTSDES" element={<Add_RTSDES />} />
-              <Route path="/CitizenCharter" element={<CitizenCharter />} />
-              <Route path="/PublicDisclosure" element={<PublicDisclosure />} />
+              <Route path="/citizen-charter" element={<CitizenCharter />} />
+              <Route path="/public-disclosure" element={<PublicDisclosure />} />
               <Route path="/Photogallery" element={<Photogallery />} />
-
-
+              <Route path="/Add_gernaldepyear" element={<Add_gernaldepyear/>} />
+              <Route path="/GeneralDepartment" element={<Generaladmindepartment />} />
               <Route path="/Add_photogallery" element={<Add_photogallery />} />
               <Route path="/Award" element={<Award />} />
               <Route path="/Add_award" element={<Add_award />} />
@@ -159,7 +161,7 @@ const Dashboard = () => {
 
               <Route path="/Add_electedwings" element={<Add_electedwings/>} />
               <Route path="/History" element={<History/>} />
-
+          
 
               <Route path="/Add_history" element={<Add_history/>} />
               <Route path="/Add_ceo" element={<Add_ceo/>} />
