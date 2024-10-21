@@ -38,6 +38,40 @@ import AddSchools from '../Schools/AddSchools';
 import CityProfileHealth from '../CityProfileHealth/CityProfileHealth';
 import AddPhotoInHealth from '../CityProfileHealth/AddPhotoInHealth';
 
+
+//Manoj
+import Services from '../Services/Services';
+import AddServices from '../Services/Add_services';
+import Add_services from '../Services/Add_services';
+import Home_video from '../Home-Video/Home_video';
+import Add_homvideo from '../Home-Video/Add_homvideo';
+import News from '../NewsUpdate/News';
+import Add_news from '../NewsUpdate/Add_news';
+import Tenders from '../Tenders/Tender';
+import Add_tender from '../Tenders/Add_tender';
+import RTS from '../Subservices/RightToServices/RTS'
+import Add_RTS from '../Subservices/RightToServices/Add_RTS';
+import Add_RTSDES from '../Subservices/RightToServices/Add_RTSDES';
+import CitizenCharter from '../Subservices/CitizenCharter/CitizenCharter';
+import PublicDisclosure from '../Subservices/PublicDisclosure/PublicDis';
+import Photogallery from '../Photogallery/Photogallery';
+import Add_photogallery from '../Photogallery/Add_photogallery';
+import Award from '../About_KBMC/Awards/Award';
+import Add_award from '../About_KBMC/Awards/Add_award';
+import Ward from '../About_KBMC/Wards/Ward';
+import Add_ward from '../About_KBMC/Wards/Add_ward';
+import Functions from '../About_KBMC/Functions/Functions';
+import Add_function from '../About_KBMC/Functions/Add_function';
+import PreviousPresident from '../About_KBMC/PreviousPresident/PreviousPresident ';
+import Add_PreviousPresident from '../About_KBMC/PreviousPresident/Add_PreviousPresident';
+import PreviousChiefOfficer from '../About_KBMC/PreviousChiefOfficer/PreviousChiefOfficer'
+import Add_previouschiefofficer from '../About_KBMC/PreviousChiefOfficer/Add_previouschiefofficer'
+import Electedwings from '../About_KBMC/ElectedWinggs/Electedwings';
+import Add_electedwings from '../About_KBMC/ElectedWinggs/Add_electedwings';
+import History from '../About_KBMC/History/History';
+import Add_history from '../About_KBMC/History/Add_history';
+import Add_ceo from '../About_KBMC/History/Add_ceo';
+
 const Dashboard = () => {
   return (
     <Router>
@@ -50,12 +84,13 @@ const Dashboard = () => {
             {/* Define the routes here */}
             <Routes>
               <Route path="/" element={<MainMenuTable />} />
+              <Route path="/services" element={< Services/>} />
               <Route path="/add-main" element={<AddMainPage />} />
               <Route path="/noti" element={<Notifications />} />
               <Route path="/contact" element={<ContactUs />} />
               <Route path="/pp" element={<PrivacyPolicy />} />
               <Route path="/tac" element={<TermsAndConditions />} />
-
+        
               <Route path="/adduser" element={<AddUser />} />
               <Route path="/user" element={<User />} />
               <Route path="/dep" element={<Departments />} />
@@ -85,6 +120,50 @@ const Dashboard = () => {
               <Route path="/add-schools" element={<AddSchools />} />
               <Route path="/health" element={<CityProfileHealth />} />
               <Route path="/add-photo-health" element={<AddPhotoInHealth />} />
+
+
+              //Manoj
+              <Route path="/Add_services" element={<Add_services />} />
+             
+              <Route path="/health" element={<CityProfileHealth />} />
+              <Route path="/add-photo-health" element={<AddPhotoInHealth />} />
+              <Route path="/Home_video" element={<Home_video />} />
+              <Route path="/add_homvideo" element={<Add_homvideo />} />
+              <Route path="/News" element={<News />} />
+              <Route path="/Add_news" element={<Add_news />} />
+              <Route path="/Tenders" element={<Tenders />} />
+              <Route path="/Add_tender" element={<Add_tender />} />
+              <Route path="/RTS" element={<RTS />} />
+              <Route path="/Add_RTS" element={<Add_RTS />} />
+              <Route path="/Add_RTSDES" element={<Add_RTSDES />} />
+              <Route path="/CitizenCharter" element={<CitizenCharter />} />
+              <Route path="/PublicDisclosure" element={<PublicDisclosure />} />
+              <Route path="/Photogallery" element={<Photogallery />} />
+
+
+              <Route path="/Add_photogallery" element={<Add_photogallery />} />
+              <Route path="/Award" element={<Award />} />
+              <Route path="/Add_award" element={<Add_award />} />
+              <Route path="/Ward" element={<Ward />} />
+              <Route path="/Add_ward" element={<Add_ward />} />
+              <Route path="/Functions" element={<Functions />} />
+              <Route path="/Add_function" element={<Add_function />} />
+              <Route path="/PreviousPresident" element={<PreviousPresident/>} />
+              <Route path="/Add_PreviousPresident" element={<Add_PreviousPresident/>} />
+              <Route path="/PreviousChiefOfficer" element={<PreviousChiefOfficer/>} />
+
+
+              <Route path="/Add_previouschiefofficer" element={<Add_previouschiefofficer/>} />
+              <Route path="/Electedwings" element={<Electedwings/>} />
+
+
+              <Route path="/Add_electedwings" element={<Add_electedwings/>} />
+              <Route path="/History" element={<History/>} />
+
+
+              <Route path="/Add_history" element={<Add_history/>} />
+              <Route path="/Add_ceo" element={<Add_ceo/>} />
+
             </Routes>
           </div>
         </div>

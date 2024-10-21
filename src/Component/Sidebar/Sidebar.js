@@ -55,94 +55,138 @@ const Sidebar = () => {
           </NavLink>
         </li>
         <li className="nav-item">
-          <div
-            className="nav-link"
-            onClick={() => setShowSubServices(!showSubServices)}
-            style={{ cursor: "pointer" }}
-          >
-            <FaClipboardList className="me-2" />
-            Sub Services {showSubServices ? <AiOutlineUp /> : <AiOutlineDown />}
-          </div>
-          {showSubServices && (
-            <ul className="nav flex-column ms-3">
-              <li className="nav-item">
-                <NavLink
-                  to="/public-disclosure"
-                  className="nav-link"
-                  activeClassName="active"
-                >
-                  Public Disclosure
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink
-                  to="/citizen-charter"
-                  className="nav-link"
-                  activeClassName="active"
-                >
-                  Citizen Charter
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink
-                  to="/right-to-service"
-                  className="nav-link"
-                  activeClassName="active"
-                >
-                  Right to Service
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink
-                  to="/development-plan"
-                  className="nav-link"
-                  activeClassName="active"
-                >
-                  Development Plan
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink
-                  to="/downloads"
-                  className="nav-link"
-                  activeClassName="active"
-                >
-                  Downloads
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink
-                  to="/city-map"
-                  className="nav-link"
-                  activeClassName="active"
-                >
-                  City Map
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink
-                  to="/elected-wing"
-                  className="nav-link"
-                  activeClassName="active"
-                >
-                  Elected Wing
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink
-                  to="/official-publications"
-                  className="nav-link"
-                  activeClassName="active"
-                >
-                  Official Publications
-                </NavLink>
-              </li>
-            </ul>
-          )}
-        </li>
+      <div
+        className="nav-link"
+        onClick={() => setShowSubServices(!showSubServices)}
+        style={{ cursor: "pointer" }}
+      >
+        <FaClipboardList className="me-2" />
+        Sub Departments {showSubServices ? <AiOutlineUp /> : <AiOutlineDown />}
+      </div>
+      {showSubServices && (
+        <ul className="nav flex-column ms-3">
+          <li className="nav-item">
+            <NavLink to="/general-admin" className="nav-link">
+              General Admin Department
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink to="/audit-department" className="nav-link">
+              Audit Department
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink to="/tax-department" className="nav-link">
+              Tax Department
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink to="/account-department" className="nav-link">
+              Account Department
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink to="/town-planning" className="nav-link">
+              Town Planning
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink to="/electrical-department" className="nav-link">
+              Electrical Department
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink to="/pwd" className="nav-link">
+              Public Work Department (PWD)
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink to="/milkat-income" className="nav-link">
+              Milkat (Income)
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink to="/e-governance" className="nav-link">
+              E-Governance Department
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink to="/health-department" className="nav-link">
+              Health Department
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink to="/wcd" className="nav-link">
+              WCD (Women and Child Development)
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink to="/advertisement-department" className="nav-link">
+              Advertisement Department
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink to="/education-department" className="nav-link">
+              Education Department
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink to="/security-department" className="nav-link">
+              Security Department
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink to="/vehicle-department" className="nav-link">
+              Vehicle Department
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink to="/nulm-department" className="nav-link">
+              NULM Department
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink to="/hospital-department" className="nav-link">
+              Hospital Department
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink to="/fire-department" className="nav-link">
+              Fire Department
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink to="/legal-department" className="nav-link">
+              Legal Department
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink to="/disability-welfare" className="nav-link">
+              Disability Welfare
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink to="/store-records" className="nav-link">
+              Store & Records Department
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink to="/marriage-registration" className="nav-link">
+              Marriage Registration
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink to="/birth-death" className="nav-link">
+              Birth & Death Department
+            </NavLink>
+          </li>
+        </ul>
+      )}
+    </li>
+
         <li className="nav-item">
           <NavLink
-            to="/home-video"
+            to="/Home_video"
             className="nav-link"
             activeClassName="active"
           >
@@ -151,13 +195,13 @@ const Sidebar = () => {
           </NavLink>
         </li>
         <li className="nav-item">
-          <NavLink to="/news" className="nav-link" activeClassName="active">
+          <NavLink to="/News" className="nav-link" activeClassName="active">
             <FaNewspaper className="me-2" />
             News Update
           </NavLink>
         </li>
         <li className="nav-item">
-          <NavLink to="/tender" className="nav-link" activeClassName="active">
+          <NavLink to="/Tenders" className="nav-link" activeClassName="active">
             <FaClipboardList className="me-2" />
             Tenders
           </NavLink>
@@ -176,7 +220,7 @@ const Sidebar = () => {
             <ul className="nav flex-column ms-3">
               <li className="nav-item">
                 <NavLink
-                  to="/history"
+                  to="/Photogallery"
                   className="nav-link"
                   activeClassName="active"
                 >
@@ -195,7 +239,7 @@ const Sidebar = () => {
 </li>
 
 <li className="nav-item">
-  <NavLink to="/department" className="nav-link" activeClassName="active">
+  <NavLink to="/dep" className="nav-link" activeClassName="active">
     <MdBusiness className="me-2" />
     Department
   </NavLink>
@@ -273,7 +317,7 @@ const Sidebar = () => {
             <ul className="nav flex-column ms-3">
               <li className="nav-item">
                 <NavLink
-                  to="/history"
+                  to="/History"
                   className="nav-link"
                   activeClassName="active"
                 >
@@ -282,7 +326,7 @@ const Sidebar = () => {
               </li>
               <li className="nav-item">
                 <NavLink
-                  to="/wards"
+                  to="/Ward"
                   className="nav-link"
                   activeClassName="active"
                 >
@@ -291,7 +335,7 @@ const Sidebar = () => {
               </li>
               <li className="nav-item">
                 <NavLink
-                  to="/elected-wings"
+                  to="/Electedwings"
                   className="nav-link"
                   activeClassName="active"
                 >
@@ -300,7 +344,7 @@ const Sidebar = () => {
               </li>
               <li className="nav-item">
                 <NavLink
-                  to="/functions"
+                  to="/Functions"
                   className="nav-link"
                   activeClassName="active"
                 >
@@ -309,7 +353,7 @@ const Sidebar = () => {
               </li>
               <li className="nav-item">
                 <NavLink
-                  to="/previous-officer"
+                  to="/PreviousChiefOfficer"
                   className="nav-link"
                   activeClassName="active"
                 >
@@ -318,7 +362,7 @@ const Sidebar = () => {
               </li>
               <li className="nav-item">
                 <NavLink
-                  to="/previous-president"
+                  to="/PreviousPresident"
                   className="nav-link"
                   activeClassName="active"
                 >
@@ -327,7 +371,7 @@ const Sidebar = () => {
               </li>
               <li className="nav-item">
                 <NavLink
-                  to="/awards"
+                  to="/Award"
                   className="nav-link"
                   activeClassName="active"
                 >
