@@ -1,6 +1,6 @@
-import React, {useState} from "react";
-import api from "../api"
-import {useNavigate} from "react-router-dom"
+import React, { useState } from "react";
+import api from "../api";
+import { useNavigate } from "react-router-dom";
 
 const AddUsers = () => {
   const [formData, setFormData] = useState({
@@ -8,7 +8,9 @@ const AddUsers = () => {
     password: '',
     department: '',
   });
-  const navigate = useNavigate(); // Initialize useNavigate
+  const [success, setSuccess] = useState(false); // Success state
+  const [error, setError] = useState(''); // Error state
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -24,74 +26,83 @@ const AddUsers = () => {
     try {
       const response = await api.post('/users', formData);
       console.log('User added:', response.data);
-      setSuccess(true); // Show success message
-      navigate('/user'); // Redirect to the user list or desired route after success
+      setSuccess(true);
+      navigate('/user');
     } catch (error) {
       console.error('There was an error adding the user:', error);
-      setError('Error adding user. Please try again.'); // Show error message
+      setError('Error adding user. Please try again.');
     }
   };
 
   return (
     <div>
-      <div class="page-wrapper">
-        <div class="content">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item">
+      <div className="page-wrapper">
+        <div className="content">
+          <ol className="breadcrumb">
+            <li className="breadcrumb-item">
               <a href="/">Home</a>
             </li>
-            <li class="breadcrumb-item active" aria-current="page">
+            <li className="breadcrumb-item active" aria-current="page">
               <a href="/user">User</a>
             </li>
-            <li class="breadcrumb-item active" aria-current="page">
+            <li className="breadcrumb-item active" aria-current="page">
               Add User
             </li>
           </ol>
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="card-box">
-                <div class="card-block">
-                  <div class="row">
-                    <div class="col-sm-4 col-3">
-                      <h4 class="page-title">Add User</h4>
+          <div className="row">
+            <div className="col-lg-12">
+              <div className="card-box">
+                <div className="card-block">
+                  <div className="row">
+                    <div className="col-sm-4 col-3">
+                      <h4 className="page-title">Add User</h4>
                     </div>
                   </div>
-                  <form action="#">
-                    <div class="row">
-                      <div class="col-md-4">
-                        <div class="form-group">
+                  <form onSubmit={handleSubmit}>
+                    <div className="row">
+                      <div className="col-md-4">
+                        <div className="form-group">
                           <label>User Name</label>
-                          <input type="text" class="form-control" />
+                          <input
+                            type="text"
+                            className="form-control"
+                            name="username"
+                            value={formData.username}
+                            onChange={handleChange}
+                          />
                         </div>
                       </div>
-                      <div class="col-md-4">
-                        <div class="form-group">
+                      <div className="col-md-4">
+                        <div className="form-group">
                           <label>Password</label>
-                          <input type="text" class="form-control" />
+                          <input
+                            type="password"
+                            className="form-control"
+                            name="password"
+                            value={formData.password}
+                            onChange={handleChange}
+                          />
                         </div>
                       </div>
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label>Type of Dapartment</label>
-                          <select class="form-control">
-                            <option>Account Department</option>
-                            <option>Tax Department</option>
+                      <div className="col-md-4">
+                        <div className="form-group">
+                          <label>Type of Department</label>
+                          <select
+                            className="form-control"
+                            name="department"
+                            value={formData.department}
+                            onChange={handleChange}
+                          >
+                            <option value="">Select Department</option>
+                            <option value="Account Department">Account Department</option>
+                            <option value="Tax Department">Tax Department</option>
                           </select>
                         </div>
                       </div>
-
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label>Password</label>
-                          <input type="text" class="form-control" />
-                        </div>
-                      </div>
                     </div>
-                    <input
-                      type="submit"
-                      class="btn btn-primary"
-                      value="Submit"
-                    />
+                    <input type="submit" className="btn btn-primary" value="Submit" />
+                    {success && <p className="text-success">User added successfully!</p>}
+                    {error && <p className="text-danger">{error}</p>}
                   </form>
                 </div>
               </div>
