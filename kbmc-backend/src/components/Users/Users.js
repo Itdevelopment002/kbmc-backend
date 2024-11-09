@@ -121,14 +121,17 @@ const Users = () => {
                               <td>{user.department}</td>
                               <td>
                                 <button
+                                
                                   onClick={() => handleEditClick(user)}
-                                  className="btn btn-success btn-sm me-2"
+                                  className="btn btn-success btn-sm m-t-10"
                                 >
                                   Edit
                                 </button>
                                 <button
+                
                                   onClick={() => handleDeleteClick(user)}
-                                  className="btn btn-danger btn-sm"
+                                  className="btn btn-danger btn-sm m-t-10"
+                                  
                                 >
                                   Delete
                                 </button>

@@ -22,6 +22,14 @@ import TermsConditions from './components/TermsConditions.js/TermsConditions';
 import PrivacyPolicy from './components/PrivacyPolicy/PrivacyPolicy';
 import Users from './components/Users/Users';
 import AddUsers from './components/Users/AddUsers';
+import PropertyHolder from './components/PropertyHolder/PropertyHolder';
+import AddPropertyHolder from './components/PropertyHolder/AddPropertyHolder';
+import MuncipalProperties from './components/MuncipalProperties/MuncipalProperties';
+import AddMuncipalProperties from './components/MuncipalProperties/AddMuncipalProperties';
+import Schools from './components/Schools/Schools';
+import AddSchools from './components/Schools/AddSchools';
+import Garden from './components/Garden/Garden';
+import AddGarden from './components/Garden/AddGarden';
 
 function App() {
   return (
@@ -39,6 +47,17 @@ function App() {
           <Route path="/terms-conditions" element={<TermsConditions />} />
           <Route path="/contact-us" element={<Contact />} />
           <Route path="/notification" element={<Notifications />} />
+          <Route path="/property-holder" element={<PropertyHolder />} />
+          <Route path="/add-property-holder" element={<AddPropertyHolder />} />
+          <Route path="/muncipal-properties" element={<MuncipalProperties />} />
+          <Route path="/add-muncipal-properties" element={<AddMuncipalProperties />} />
+          <Route path="/schools" element={<Schools />} />
+          <Route path="/add-schools" element={<AddSchools />} />
+          <Route path="/garden" element={<Garden />} />
+          <Route path="/add-garden" element={<AddGarden />} />
+
+
+
         </Routes>
       </Router>
     </div>

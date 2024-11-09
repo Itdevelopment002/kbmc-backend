@@ -2218,3 +2218,12 @@ blockquote p {font-style: italic;font-weight: 400;}
 .form-control{border-color: #ccc;}
 .modal{background: rgba(0,0,0,0.7);}
 textarea{width: 100%; border: 1px solid #ccc;}
+
+/* Custom CSS Added */
+.btn-group-sm>.btn, .btn-sm {
+    margin-left: .2rem;
+}
+
+a {
+    text-decoration: none !important;
+}
