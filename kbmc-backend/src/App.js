@@ -51,6 +51,22 @@ import AddFireStation from './components/FireStation/AddFireStation';
 import PrivateHospital from './components/PrivateHospital/PrivateHospital';
 import AddPrivateHospital from './components/PrivateHospital/AddPrivateHospital';
 import Health from './components/Health/Health';
+import History from './components/History/History';
+import AddHistory from './components/History/AddHistory';
+import AddCo from './components/History/AddCo';
+import Wards from './components/Wards/Wards';
+import AddWards from './components/Wards/AddWards';
+import ElectedWings from './components/ElectedWings/ElectedWings';
+import AddElectedWings from './components/ElectedWings/AddElectedWings';
+import AddFunctions from './components/Functions/AddFunctions';
+import Functions from './components/Functions/Functions';
+import AddAwards from './components/Awards/AddAwards';
+import AddAwardImages from './components/Awards/AddAwardImages';
+import Awards from './components/Awards/Awards';
+import AddPreviousOfficers from './components/PreviousOfficers/AddPreviousOfficers';
+import PreviousOfficers from './components/PreviousOfficers/PreviousOfficers';
+import AddPreviousPresidents from './components/PreviousPresidents/AddPreviousPresidents';
+import PreviousPresidents from './components/PreviousPresidents/PreviousPresidents';
 
 function App() {
   return (
@@ -97,6 +113,22 @@ function App() {
           <Route path="/private-hospital" element={<PrivateHospital />} />
           <Route path="/add-private-hospital" element={<AddPrivateHospital />} />
           <Route path="/health" element={<Health />} />
+          <Route path="/history" element={<History />} />
+          <Route path="/add-co" element={<AddCo />} />
+          <Route path="/add-history" element={<AddHistory />} />
+          <Route path="/wards" element={<Wards />} />
+          <Route path="/add-wards" element={<AddWards />} />
+          <Route path="/elected-wings" element={<ElectedWings />} />
+          <Route path="/add-elected-wings" element={<AddElectedWings />} />
+          <Route path="/functions" element={<Functions />} />
+          <Route path="/add-functions" element={<AddFunctions />} />
+          <Route path="/add-awards" element={<AddAwards />} />
+          <Route path="/add-award-images" element={<AddAwardImages />} />
+          <Route path="/awards" element={<Awards />} />
+          <Route path="/add-previous-officers" element={<AddPreviousOfficers />} />
+          <Route path="/previous-officers" element={<PreviousOfficers />} />
+          <Route path="/add-previous-presidents" element={<AddPreviousPresidents />} />
+          <Route path="/previous-presidents" element={<PreviousPresidents />} />
         </Routes>
       </Router>
     </div>
