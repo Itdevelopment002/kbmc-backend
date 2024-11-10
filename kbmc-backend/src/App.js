@@ -30,6 +30,14 @@ import Schools from './components/Schools/Schools';
 import AddSchools from './components/Schools/AddSchools';
 import Garden from './components/Garden/Garden';
 import AddGarden from './components/Garden/AddGarden';
+import AddTender from './components/Tender/AddTender';
+import Tender from './components/Tender/Tender';
+import News from './components/News/News';
+import AddNews from './components/News/AddNews';
+import PhotoGallery from './components/PhotoGallery/PhotoGallery';
+import AddPhotoGallery from './components/PhotoGallery/AddPhotoGallery';
+import AddServices from './components/Services/AddServices';
+import Services from './components/Services/Services';
 import Electric from './components/Electric/Electric';
 import AddElectric from './components/Electric/AddElectric';
 import Roads from './components/Roads/Roads';
@@ -68,6 +76,14 @@ function App() {
           <Route path="/add-schools" element={<AddSchools />} />
           <Route path="/garden" element={<Garden />} />
           <Route path="/add-garden" element={<AddGarden />} />
+          <Route path="/add-tenders" element={<AddTender />} />
+          <Route path="/tenders" element={<Tender />} />
+          <Route path="/news" element={<News />} />
+          <Route path="/add-news" element={<AddNews />} />
+          <Route path="/photo-gallery" element={<PhotoGallery />} />
+          <Route path="/add-photos-gallery" element={<AddPhotoGallery />} />
+          <Route path="/add-services" element={<AddServices/>} />
+          <Route path="/services" element={<Services/>} />
           <Route path="/electric" element={<Electric />} />
           <Route path="/add-electric" element={<AddElectric />} />
           <Route path="/roads" element={<Roads />} />
@@ -81,7 +97,6 @@ function App() {
           <Route path="/private-hospital" element={<PrivateHospital />} />
           <Route path="/add-private-hospital" element={<AddPrivateHospital />} />
           <Route path="/health" element={<Health />} />
-
         </Routes>
       </Router>
     </div>

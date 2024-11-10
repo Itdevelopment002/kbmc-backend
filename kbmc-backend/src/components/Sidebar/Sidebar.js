@@ -57,7 +57,7 @@ const Sidebar = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/tender">
+                <Link to="/tenders">
                   <i class="fa fa-calendar"></i> Tenders
                 </Link>
               </li>
