@@ -47,7 +47,7 @@
 
 
 .sidebar {
-  scrollbar-width: thin; 
+  scrollbar-width: none; 
   scrollbar-color: rgba(0, 0, 0, 0.1) transparent; 
 }
 

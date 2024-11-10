@@ -238,7 +238,7 @@ const Schools = () => {
                                                             </button>
                                                             <button
                                                                 onClick={() => openEditModal(item, "school")}
-                                                                className="btn btn-success btn-sm m-t-10 mx-2"
+                                                                className="btn btn-success btn-sm m-t-10"
                                                             >
                                                                 Edit
                                                             </button>
@@ -264,21 +264,7 @@ const Schools = () => {
                                             <tbody>
                                                 <tr>
                                                     {currentPageData.map((item) => (
-                                                        // <td key={item.id} className="text-center">
-                                                        // <a href={`${baseURL}${item.image_path}`} className="glightbox">
-                                                        //     <img width="100px" src={`${baseURL}${item.image_path}`} alt="School" />
-                                                        // </a>
-                                                        //     <Button variant="danger" onClick={() => {
-                                                        //         setSelectedItem(item);
-                                                        //         setModalType("school-image");
-                                                        //         setShowDeleteModal(true);
-                                                        //     }}>
-                                                        //         <FaTrash />
-                                                        //     </Button>
-                                                        //     <Button variant="success" onClick={() => openEditModal(item, "school-image")}>
-                                                        //         <FaEdit />
-                                                        //     </Button>
-                                                        // </td>
+                                                        
 
                                                         <td key={item.id} className="text-center">
                                                             <a href={`${baseURL}${item.image_path}`} className="glightbox">
@@ -365,145 +351,145 @@ const Schools = () => {
                     </div>
 
                     <div
-        className={`modal fade ${showEditModal ? "show" : ""}`}
-        tabIndex="-1"
-        aria-labelledby="editModalLabel"
-        aria-hidden={!showEditModal}
-        style={{ display: showEditModal ? "block" : "none" }}
-      >
-        <div className="modal-dialog">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title">
-                {modalType === "school" ? "Edit School" : "Edit School Image"}
-              </h5>
-              <button
-                type="button"
-                className="close"
-                data-dismiss="modal"
-                aria-label="Close"
-                onClick={closeModal}
-              >
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div className="modal-body">
-              {modalType === "school" ? (
-                <div>
-                  <div className="form-group">
-                    <label>Heading</label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      value={editData.heading}
-                      onChange={(e) =>
-                        setEditData({ ...editData, heading: e.target.value })
-                      }
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label>School Name</label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      value={editData.schoolName}
-                      onChange={(e) =>
-                        setEditData({ ...editData, schoolName: e.target.value })
-                      }
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label>Address</label>
-                    <textarea
-                      className="form-control"
-                      value={editData.address}
-                      onChange={(e) =>
-                        setEditData({ ...editData, address: e.target.value })
-                      }
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label>Medium</label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      value={editData.medium}
-                      onChange={(e) =>
-                        setEditData({ ...editData, medium: e.target.value })
-                      }
-                    />
-                  </div>
-                </div>
-              ) : (
-                <div>
-                  <div className="form-group">
-                    <label>Image</label>
-                    <input
-                      type="file"
-                      className="form-control"
-                      onChange={handleImageChange}
-                    />
-                    {imagePreview && (
-                      <div className="mt-3">
-                        <img src={imagePreview} alt="Preview" width="150" />
-                      </div>
-                    )}
-                  </div>
-                </div>
-              )}
-            </div>
-            <div className="modal-footer">
-              <button type="button" className="btn btn-secondary" onClick={closeModal}>
-                Close
-              </button>
-              <button type="button" className="btn btn-primary" onClick={handleSaveChanges}>
-                Save Changes
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+                        className={`modal fade ${showEditModal ? "show" : ""}`}
+                        tabIndex="-1"
+                        aria-labelledby="editModalLabel"
+                        aria-hidden={!showEditModal}
+                        style={{ display: showEditModal ? "block" : "none" }}
+                    >
+                        <div className="modal-dialog">
+                            <div className="modal-content">
+                                <div className="modal-header">
+                                    <h5 className="modal-title">
+                                        {modalType === "school" ? "Edit School" : "Edit School Image"}
+                                    </h5>
+                                    <button
+                                        type="button"
+                                        className="close"
+                                        data-dismiss="modal"
+                                        aria-label="Close"
+                                        onClick={closeModal}
+                                    >
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div className="modal-body">
+                                    {modalType === "school" ? (
+                                        <div>
+                                            <div className="form-group">
+                                                <label>Heading</label>
+                                                <input
+                                                    type="text"
+                                                    className="form-control"
+                                                    value={editData.heading}
+                                                    onChange={(e) =>
+                                                        setEditData({ ...editData, heading: e.target.value })
+                                                    }
+                                                />
+                                            </div>
+                                            <div className="form-group">
+                                                <label>School Name</label>
+                                                <input
+                                                    type="text"
+                                                    className="form-control"
+                                                    value={editData.schoolName}
+                                                    onChange={(e) =>
+                                                        setEditData({ ...editData, schoolName: e.target.value })
+                                                    }
+                                                />
+                                            </div>
+                                            <div className="form-group">
+                                                <label>Address</label>
+                                                <textarea
+                                                    className="form-control"
+                                                    value={editData.address}
+                                                    onChange={(e) =>
+                                                        setEditData({ ...editData, address: e.target.value })
+                                                    }
+                                                />
+                                            </div>
+                                            <div className="form-group">
+                                                <label>Medium</label>
+                                                <input
+                                                    type="text"
+                                                    className="form-control"
+                                                    value={editData.medium}
+                                                    onChange={(e) =>
+                                                        setEditData({ ...editData, medium: e.target.value })
+                                                    }
+                                                />
+                                            </div>
+                                        </div>
+                                    ) : (
+                                        <div>
+                                            <div className="form-group">
+                                                <label>Image</label>
+                                                <input
+                                                    type="file"
+                                                    className="form-control"
+                                                    onChange={handleImageChange}
+                                                />
+                                                {imagePreview && (
+                                                    <div className="mt-3">
+                                                        <img src={imagePreview} alt="Preview" width="150" />
+                                                    </div>
+                                                )}
+                                            </div>
+                                        </div>
+                                    )}
+                                </div>
+                                <div className="modal-footer">
+                                    <button type="button" className="btn btn-sm btn-secondary" onClick={closeModal}>
+                                        Close
+                                    </button>
+                                    <button type="button" className="btn btn-sm btn-primary" onClick={handleSaveChanges}>
+                                        Save Changes
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-      {/* Delete Modal */}
-      <div
-        className={`modal fade ${showDeleteModal ? "show" : ""}`}
-        tabIndex="-1"
-        aria-labelledby="deleteModalLabel"
-        aria-hidden={!showDeleteModal}
-        style={{ display: showDeleteModal ? "block" : "none" }}
-      >
-        <div className="modal-dialog">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title">Confirm Delete</h5>
-              <button
-                type="button"
-                className="close"
-                data-dismiss="modal"
-                aria-label="Close"
-                onClick={closeModal}
-              >
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div className="modal-body">
-              Are you sure you want to delete this entry?
-            </div>
-            <div className="modal-footer">
-              <button type="button" className="btn btn-secondary" onClick={closeModal}>
-                Close
-              </button>
-              <button
-                type="button"
-                className="btn btn-danger"
-                onClick={() => handleDelete(selectedItem.id, modalType)}
-              >
-                Delete
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+                    {/* Delete Modal */}
+                    <div
+                        className={`modal fade ${showDeleteModal ? "show" : ""}`}
+                        tabIndex="-1"
+                        aria-labelledby="deleteModalLabel"
+                        aria-hidden={!showDeleteModal}
+                        style={{ display: showDeleteModal ? "block" : "none" }}
+                    >
+                        <div className="modal-dialog">
+                            <div className="modal-content">
+                                <div className="modal-header">
+                                    <h5 className="modal-title">Confirm Delete</h5>
+                                    <button
+                                        type="button"
+                                        className="close"
+                                        data-dismiss="modal"
+                                        aria-label="Close"
+                                        onClick={closeModal}
+                                    >
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div className="modal-body">
+                                    Are you sure you want to delete this entry?
+                                </div>
+                                <div className="modal-footer">
+                                    <button type="button" className="btn btn-sm btn-secondary" onClick={closeModal}>
+                                        Close
+                                    </button>
+                                    <button
+                                        type="button"
+                                        className="btn btn-sm btn-danger"
+                                        onClick={() => handleDelete(selectedItem.id, modalType)}
+                                    >
+                                        Delete
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </>

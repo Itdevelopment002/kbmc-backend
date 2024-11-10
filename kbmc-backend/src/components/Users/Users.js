@@ -121,17 +121,17 @@ const Users = () => {
                               <td>{user.department}</td>
                               <td>
                                 <button
-                                
+
                                   onClick={() => handleEditClick(user)}
                                   className="btn btn-success btn-sm m-t-10"
                                 >
                                   Edit
                                 </button>
                                 <button
-                
+
                                   onClick={() => handleDeleteClick(user)}
                                   className="btn btn-danger btn-sm m-t-10"
-                                  
+
                                 >
                                   Delete
                                 </button>
@@ -151,9 +151,8 @@ const Users = () => {
                   <div className="mt-4">
                     <ul className="pagination">
                       <li
-                        className={`page-item ${
-                          currentPage === 1 ? "disabled" : ""
-                        }`}
+                        className={`page-item ${currentPage === 1 ? "disabled" : ""
+                          }`}
                       >
                         <button
                           className="page-link"
@@ -166,9 +165,8 @@ const Users = () => {
                         { length: Math.ceil(users.length / itemsPerPage) },
                         (_, i) => (
                           <li
-                            className={`page-item ${
-                              currentPage === i + 1 ? "active" : ""
-                            }`}
+                            className={`page-item ${currentPage === i + 1 ? "active" : ""
+                              }`}
                             key={i}
                           >
                             <button
@@ -181,11 +179,10 @@ const Users = () => {
                         )
                       )}
                       <li
-                        className={`page-item ${
-                          currentPage === Math.ceil(users.length / itemsPerPage)
+                        className={`page-item ${currentPage === Math.ceil(users.length / itemsPerPage)
                             ? "disabled"
                             : ""
-                        }`}
+                          }`}
                       >
                         <button
                           className="page-link"
@@ -202,118 +199,123 @@ const Users = () => {
           </div>
 
           {showEditModal && (
-          <div
-            className="modal fade show"
-            style={{ display: "block", backgroundColor: "rgba(0,0,0,0.5)" }}
-          >
-            <div className="modal-dialog modal-dialog-centered">
-              <div className="modal-content">
-                <div className="modal-header">
-                  <h5 className="modal-title">Edit User</h5>
-                  <button
-                    type="button"
-                    className="btn-close"
-                    onClick={() => setShowEditModal(false)}
-                  ></button>
-                </div>
-                <div className="modal-body">
-                  <form>
-                    <div className="mb-3">
-                      <label className="form-label">Username</label>
-                      <input
-                        type="text"
-                        className="form-control"
-                        value={editUserData.username}
-                        onChange={(e) =>
-                          setEditUserData({
-                            ...editUserData,
-                            username: e.target.value,
-                          })
-                        }
-                      />
-                    </div>
-                    <div className="mb-3">
-                      <label className="form-label">Password</label>
-                      <input
-                        type="password"
-                        className="form-control"
-                        value={editUserData.password}
-                        onChange={(e) =>
-                          setEditUserData({
-                            ...editUserData,
-                            password: e.target.value,
-                          })
-                        }
-                      />
-                    </div>
-                    <div className="mb-3">
-                      <label className="form-label">Department</label>
-                      <input
-                        type="text"
-                        className="form-control"
-                        value={editUserData.department}
-                        onChange={(e) =>
-                          setEditUserData({
-                            ...editUserData,
-                            department: e.target.value,
-                          })
-                        }
-                      />
-                    </div>
-                  </form>
-                </div>
-                <div className="modal-footer">
-                  <button
-                    type="button"
-                    className="btn btn-secondary"
-                    onClick={() => setShowEditModal(false)}
-                  >
-                    Close
-                  </button>
-                  <button
-                    type="button"
-                    className="btn btn-primary"
-                    onClick={handleEditSave}
-                  >
-                    Save Changes
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
+            <div
+              className="modal fade show"
+              style={{ display: "block", backgroundColor: "rgba(0,0,0,0.5)" }}
+            >
+              <div className="modal-dialog modal-dialog-centered">
+                <div className="modal-content">
+                  <div className="modal-header">
+                    <h5 className="modal-title">Edit User</h5>
 
-        {/* Delete Modal */}
-        {showDeleteModal && (
-          <div
-            className="modal fade show"
-            style={{ display: "block", backgroundColor: "rgba(0,0,0,0.5)" }}
-          >
-            <div className="modal-dialog modal-dialog-centered">
-              <div className="modal-content">
-                <div className="modal-body">
-                  <h4>Are you sure you want to delete this item?</h4>
-                </div>
-                <div className="modal-footer">
-                  <button
-                    type="button"
-                    className="btn btn-secondary"
-                    onClick={() => setShowDeleteModal(false)}
-                  >
-                    Close
-                  </button>
-                  <button
-                    type="button"
-                    className="btn btn-danger"
-                    onClick={handleDeleteConfirm}
-                  >
-                    Delete
-                  </button>
+                    <button
+                      type="button"
+                      className="close"
+                      data-dismiss="modal"
+                      aria-label="Close"
+                      onClick={() => setShowEditModal(false)}
+                    >
+                      <span aria-hidden="true">&times;</span> {/* The cross icon */}
+                    </button>
+                  </div>
+                  <div className="modal-body">
+                    <form>
+                      <div className="mb-3">
+                        <label className="form-label">Username</label>
+                        <input
+                          type="text"
+                          className="form-control"
+                          value={editUserData.username}
+                          onChange={(e) =>
+                            setEditUserData({
+                              ...editUserData,
+                              username: e.target.value,
+                            })
+                          }
+                        />
+                      </div>
+                      <div className="mb-3">
+                        <label className="form-label">Password</label>
+                        <input
+                          type="password"
+                          className="form-control"
+                          value={editUserData.password}
+                          onChange={(e) =>
+                            setEditUserData({
+                              ...editUserData,
+                              password: e.target.value,
+                            })
+                          }
+                        />
+                      </div>
+                      <div className="mb-3">
+                        <label className="form-label">Department</label>
+                        <input
+                          type="text"
+                          className="form-control"
+                          value={editUserData.department}
+                          onChange={(e) =>
+                            setEditUserData({
+                              ...editUserData,
+                              department: e.target.value,
+                            })
+                          }
+                        />
+                      </div>
+                    </form>
+                  </div>
+                  <div className="modal-footer">
+                    <button
+                      type="button"
+                      className="btn btn-sm btn-secondary"
+                      onClick={() => setShowEditModal(false)}
+                    >
+                      Close
+                    </button>
+                    <button
+                      type="button"
+                      className="btn btn-sm btn-primary"
+                      onClick={handleEditSave}
+                    >
+                      Save Changes
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        )}
+          )}
+
+          {/* Delete Modal */}
+          {showDeleteModal && (
+            <div
+              className="modal fade show"
+              style={{ display: "block", backgroundColor: "rgba(0,0,0,0.5)" }}
+            >
+              <div className="modal-dialog modal-dialog-centered">
+                <div className="modal-content">
+                  <div className="modal-body">
+                    <h4>Are you sure you want to delete this item?</h4>
+                  </div>
+                  <div className="modal-footer">
+                    <button
+                      type="button"
+                      className="btn btn-sm btn-secondary"
+                      onClick={() => setShowDeleteModal(false)}
+                    >
+                      Close
+                    </button>
+                    <button
+                      type="button"
+                      className="btn btn-sm btn-danger"
+                      onClick={handleDeleteConfirm}
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>

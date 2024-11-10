@@ -143,7 +143,7 @@ const Sidebar = () => {
                   <li><Link to="/health">Health</Link></li>
                   <li><Link to="/ponds-talao">Ponds / Talao</Link></li>
                   <li><Link to="/fire-station">Fire Station</Link></li>
-                  <li><Link to="private-hospital">Private Hospital</Link></li>
+                  <li><Link to="/private-hospital">Private Hospital</Link></li>
                 </ul>
               </li>
               <li className="submenu">

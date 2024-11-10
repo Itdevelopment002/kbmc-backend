@@ -168,8 +168,8 @@ const Garden = () => {
                                                             </div>
                                                         </td>
                                                         <td>
-                                                            <button className="btn btn-success" onClick={() => handleEdit(garden)}>Edit</button>
-                                                            <button className="btn btn-danger mx-1" onClick={() => handleDelete(garden)}>Delete</button>
+                                                            <button className="btn btn-sm btn-success" onClick={() => handleEdit(garden)}>Edit</button>
+                                                            <button className="btn btn-sm btn-danger mx-1" onClick={() => handleDelete(garden)}>Delete</button>
                                                         </td>
                                                     </tr>
                                                 ))}
@@ -203,8 +203,8 @@ const Garden = () => {
                                     <h4>Are you sure you want to delete this item?</h4>
                                 </div>
                                 <div className="modal-footer">
-                                    <button type="button" className="btn btn-primary" onClick={handleCloseDeleteModal}>Close</button>
-                                    <button type="button" className="btn btn-danger" onClick={handleDeleteConfirm}>Delete</button>
+                                    <button type="button" className="btn btn-sm btn-primary" onClick={handleCloseDeleteModal}>Close</button>
+                                    <button type="button" className="btn btn-sm btn-danger" onClick={handleDeleteConfirm}>Delete</button>
                                 </div>
                             </div>
                         </div>
@@ -235,7 +235,7 @@ const Garden = () => {
                                             <label>Garden Photo <span className="text-danger">*</span></label>
                                             <input type="file" className="form-control" onChange={handleFileChange} multiple />
                                         </div>
-                                        <button type="button" className="btn btn-primary" onClick={handleSaveEdit}>Submit</button>
+                                        <button type="button" className="btn btn-sm btn-primary" onClick={handleSaveEdit}>Submit</button>
                                     </form>
                                 </div>
                             </div>

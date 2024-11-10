@@ -170,8 +170,8 @@ const PropertyHolder = () => {
                                         <h4>Are you sure you want to delete this item?</h4>
                                     </div>
                                     <div className="modal-footer">
-                                        <button type="button" className="btn btn-secondary" onClick={handleCloseDeleteModal}>Close</button>
-                                        <button type="button" className="btn btn-danger" onClick={handleDelete}>Delete</button>
+                                        <button type="button" className="btn btn-sm btn-secondary" onClick={handleCloseDeleteModal}>Close</button>
+                                        <button type="button" className="btn btn-sm btn-danger" onClick={handleDelete}>Delete</button>
                                     </div>
                                 </div>
                             </div>
@@ -210,8 +210,8 @@ const PropertyHolder = () => {
                                         </form>
                                     </div>
                                     <div className="modal-footer">
-                                        <button type="button" className="btn btn-secondary" onClick={handleCloseEditModal}>Close</button>
-                                        <button type="button" className="btn btn-primary" onClick={handleEditSubmit}>Save Changes</button>
+                                        <button type="button" className="btn btn-sm btn-secondary" onClick={handleCloseEditModal}>Close</button>
+                                        <button type="button" className="btn btn-sm btn-primary" onClick={handleEditSubmit}>Save Changes</button>
                                     </div>
                                 </div>
                             </div>
