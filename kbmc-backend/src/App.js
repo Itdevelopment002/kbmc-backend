@@ -30,6 +30,19 @@ import Schools from './components/Schools/Schools';
 import AddSchools from './components/Schools/AddSchools';
 import Garden from './components/Garden/Garden';
 import AddGarden from './components/Garden/AddGarden';
+import Electric from './components/Electric/Electric';
+import AddElectric from './components/Electric/AddElectric';
+import Roads from './components/Roads/Roads';
+import AddRoads from './components/Roads/AddRoads';
+import TreeCensus from './components/TreeCensus/TreeCensus';
+import AddTreeCensus from './components/TreeCensus/AddTreeCensus';
+import PondsAndTalao from './components/PondsAndTalao/PondsAndTalao';
+import AddPondsAndTalao from './components/PondsAndTalao/AddPondsAndTalao';
+import FireStation from './components/FireStation/FireStation';
+import AddFireStation from './components/FireStation/AddFireStation';
+import PrivateHospital from './components/PrivateHospital/PrivateHospital';
+import AddPrivateHospital from './components/PrivateHospital/AddPrivateHospital';
+import Health from './components/Health/Health';
 
 function App() {
   return (
@@ -55,8 +68,19 @@ function App() {
           <Route path="/add-schools" element={<AddSchools />} />
           <Route path="/garden" element={<Garden />} />
           <Route path="/add-garden" element={<AddGarden />} />
-
-
+          <Route path="/electric" element={<Electric />} />
+          <Route path="/add-electric" element={<AddElectric />} />
+          <Route path="/roads" element={<Roads />} />
+          <Route path="/add-roads" element={<AddRoads />} />
+          <Route path="/tree-census" element={<TreeCensus />} />
+          <Route path="/add-tree-census" element={<AddTreeCensus />} />
+          <Route path="/ponds-talao" element={<PondsAndTalao />} />
+          <Route path="/add-ponds-talao" element={<AddPondsAndTalao />} />
+          <Route path="/fire-station" element={<FireStation />} />
+          <Route path="/add-fire-station" element={<AddFireStation />} />
+          <Route path="/private-hospital" element={<PrivateHospital />} />
+          <Route path="/add-private-hospital" element={<AddPrivateHospital />} />
+          <Route path="/health" element={<Health />} />
 
         </Routes>
       </Router>
