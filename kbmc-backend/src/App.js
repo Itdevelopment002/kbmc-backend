@@ -38,6 +38,19 @@ import PhotoGallery from './components/PhotoGallery/PhotoGallery';
 import AddPhotoGallery from './components/PhotoGallery/AddPhotoGallery';
 import AddServices from './components/Services/AddServices';
 import Services from './components/Services/Services';
+import Electric from './components/Electric/Electric';
+import AddElectric from './components/Electric/AddElectric';
+import Roads from './components/Roads/Roads';
+import AddRoads from './components/Roads/AddRoads';
+import TreeCensus from './components/TreeCensus/TreeCensus';
+import AddTreeCensus from './components/TreeCensus/AddTreeCensus';
+import PondsAndTalao from './components/PondsAndTalao/PondsAndTalao';
+import AddPondsAndTalao from './components/PondsAndTalao/AddPondsAndTalao';
+import FireStation from './components/FireStation/FireStation';
+import AddFireStation from './components/FireStation/AddFireStation';
+import PrivateHospital from './components/PrivateHospital/PrivateHospital';
+import AddPrivateHospital from './components/PrivateHospital/AddPrivateHospital';
+import Health from './components/Health/Health';
 
 function App() {
   return (
@@ -71,15 +84,19 @@ function App() {
           <Route path="/add-photos-gallery" element={<AddPhotoGallery />} />
           <Route path="/add-services" element={<AddServices/>} />
           <Route path="/services" element={<Services/>} />
-
-
-
-
-
-
-
-
-
+          <Route path="/electric" element={<Electric />} />
+          <Route path="/add-electric" element={<AddElectric />} />
+          <Route path="/roads" element={<Roads />} />
+          <Route path="/add-roads" element={<AddRoads />} />
+          <Route path="/tree-census" element={<TreeCensus />} />
+          <Route path="/add-tree-census" element={<AddTreeCensus />} />
+          <Route path="/ponds-talao" element={<PondsAndTalao />} />
+          <Route path="/add-ponds-talao" element={<AddPondsAndTalao />} />
+          <Route path="/fire-station" element={<FireStation />} />
+          <Route path="/add-fire-station" element={<AddFireStation />} />
+          <Route path="/private-hospital" element={<PrivateHospital />} />
+          <Route path="/add-private-hospital" element={<AddPrivateHospital />} />
+          <Route path="/health" element={<Health />} />
         </Routes>
       </Router>
     </div>
