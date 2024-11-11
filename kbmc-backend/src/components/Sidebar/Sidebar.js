@@ -2,82 +2,95 @@ import React, { useState } from "react";
 import "./Sidebar.css";
 import { Link } from "react-router-dom";
 
-const Sidebar = () => {
+const Sidebar = ({ isOpen, closeSidebar }) => {
   const [openSubmenu, setOpenSubmenu] = useState(null);
 
   const toggleSubmenu = (menuId) => {
     setOpenSubmenu((prevId) => (prevId === menuId ? null : menuId));
   };
 
+  const handleItemClick = () => {
+    closeSidebar(); // Close the sidebar when an item is clicked
+  };
+
+
   return (
-    <div>
-      <div class="sidebar" id="sidebar">
+    <>
+      {isOpen && (
+        <div
+          className="sidebar-overlay opened"
+          onClick={closeSidebar} 
+        />
+      )}
+
+      {/* Sidebar component */}
+      <div className={`sidebar ${isOpen ? "opened" : ""}`}>
         <div class="sidebar-inner">
           <div id="sidebar-menu" class="sidebar-menu">
             <ul>
               <li class="active">
-                <Link to="/">
+                <Link to="/" onClick={handleItemClick}>
                   <i class="fa fa-dashboard"></i>Main Menu
                 </Link>
               </li>
               <li>
-                <Link to="/slider">
+                <Link to="/slider" onClick={handleItemClick}>
                   <i class="fa fa-user-md"></i> Slider
                 </Link>
               </li>
               <li>
-                <Link to="/services">
+                <Link to="/services" onClick={handleItemClick}>
                   <i class="fa fa-user-md"></i> Services
                 </Link>
               </li>
               <li className="submenu">
-                <a href="#." onClick={() => toggleSubmenu("subservices")}>
+                <Link to="#." onClick={() => toggleSubmenu("subservices")}>
                   <i className="fa fa-user"></i> <span>Sub Services </span>{" "}
                   <span
                     className={`menu-arrow ${
                       openSubmenu === "subservices" ? "rotate" : ""
                     }`}
                   ></span>
-                </a>
+                </Link>
                 <ul className={openSubmenu === "subservices" ? "open" : ""}>
                   <li>
-                    <a href="/public-disclosure">Public Disclosure</a>
+                    <Link to="/public-disclosure" onClick={handleItemClick}>Public Disclosure</Link>
                   </li>
                   <li>
-                    <a href="/citizen-charter">Citizen Charter</a>
+                    <Link to="/citizen-charter" onClick={handleItemClick}>Citizen Charter</Link>
                   </li>
                   <li>
-                    <a href="/rts">Right to Service</a>
+                    <Link to="/rts" onClick={handleItemClick}>Right to Service</Link>
                   </li>
                   <li>
-                    <a href="#.">Development Plan</a>
+                    <Link to="#." onClick={handleItemClick}>Development Plan</Link>
                   </li>
                   <li>
-                    <a href="#.">Downloads</a>
+                    <Link to="#." onClick={handleItemClick}>Downloads</Link>
                   </li>
                   <li>
-                    <a href="#.">City Map</a>
+                    <Link to="#." onClick={handleItemClick}>City Map</Link>
                   </li>
                   <li>
-                    <a href="#.">Elected Wing</a>
+                    <Link to="#." onClick={handleItemClick}>Elected Wing</Link>
                   </li>
                   <li>
-                    <a href="#.">Official Publications</a>
+                    <Link to="#." onClick={handleItemClick}>Official Publications</Link>
                   </li>
                 </ul>
               </li>
               <li>
-                <Link to="/home-video">
+                <Link to="/home-videos" onClick={handleItemClick}>
                   <i class="fa fa-user-md"></i> Home Video
                 </Link>
               </li>
               <li>
-                <Link to="/news">
+                <Link to="/news" onClick={handleItemClick}>
                   <i class="fa fa-wheelchair"></i> News Update
                 </Link>
               </li>
               <li>
-                <Link to="/tenders">
+                <Link to="/tenders" onClick={handleItemClick}>
                   <i class="fa fa-calendar"></i> Tenders
                 </Link>
               </li>
@@ -92,17 +105,17 @@ const Sidebar = () => {
                 </Link>
                 <ul className={openSubmenu === "gallery" ? "open" : ""}>
                   <li>
-                    <Link to="/photo-gallery">Photo Gallery</Link>
+                    <Link to="/photo-gallery" onClick={handleItemClick}>Photo Gallery</Link>
                   </li>
                 </ul>
               </li>
               <li>
-                <Link to="/gov-web-link">
+                <Link to="/gov-website-link" onClick={handleItemClick}>
                   <i class="fa fa-calendar-check-o"></i>Govt. Website Links
                 </Link>
               </li>
               <li>
-                <Link to="/departments">
+                <Link to="/departments" onClick={handleItemClick}>
                   <i class="fa fa-calendar-check-o"></i>Departments
                 </Link>
               </li>
@@ -118,73 +131,73 @@ const Sidebar = () => {
                 </Link>
                 <ul className={openSubmenu === "subdepartments" ? "open" : ""}>
                   <li>
-                    <Link to="#.">General Admin Department</Link>
+                    <Link to="#." onClick={handleItemClick}>General Admin Department</Link>
                   </li>
                   <li>
-                    <Link to="#.">Audit Department</Link>
+                    <Link to="#." onClick={handleItemClick}>Audit Department</Link>
                   </li>
                   <li>
-                    <Link to="#.">Tax Department</Link>
+                    <Link to="#." onClick={handleItemClick}>Tax Department</Link>
                   </li>
                   <li>
-                    <Link to="#.">Account Department</Link>
+                    <Link to="#." onClick={handleItemClick}>Account Department</Link>
                   </li>
                   <li>
-                    <Link to="#.">Town Planning</Link>
+                    <Link to="#." onClick={handleItemClick}>Town Planning</Link>
                   </li>
                   <li>
-                    <Link to="#.">Electrical Department</Link>
+                    <Link to="#." onClick={handleItemClick}>Electrical Department</Link>
                   </li>
                   <li>
-                    <Link to="#.">Public Work Department (PWD)</Link>
+                    <Link to="#." onClick={handleItemClick}>Public Work Department (PWD)</Link>
                   </li>
                   <li>
-                    <Link to="#.">Milkat (Income)</Link>
+                    <Link to="#." onClick={handleItemClick}>Milkat (Income)</Link>
                   </li>
                   <li>
-                    <Link to="#.">E-Governance Department</Link>
+                    <Link to="#." onClick={handleItemClick}>E-Governance Department</Link>
                   </li>
                   <li>
-                    <Link to="#.">Health Department</Link>
+                    <Link to="#." onClick={handleItemClick}>Health Department</Link>
                   </li>
                   <li>
-                    <Link to="#.">WCD (Women and Child Development)</Link>
+                    <Link to="#." onClick={handleItemClick}>WCD (Women and Child Development)</Link>
                   </li>
                   <li>
-                    <Link to="#.">Advertisement Department</Link>
+                    <Link to="#." onClick={handleItemClick}>Advertisement Department</Link>
                   </li>
                   <li>
                     <Link to="#.">Education Department</Link>
                   </li>
                   <li>
-                    <Link to="#.">Security Department</Link>
+                    <Link to="#." onClick={handleItemClick}>Security Department</Link>
                   </li>
                   <li>
-                    <Link to="#.">Vehicle Department</Link>
+                    <Link to="#." onClick={handleItemClick}>Vehicle Department</Link>
                   </li>
                   <li>
-                    <Link to="#.">NULM Department</Link>
+                    <Link to="#." onClick={handleItemClick}>NULM Department</Link>
                   </li>
                   <li>
-                    <Link to="#.">Hospital Department</Link>
+                    <Link to="#." onClick={handleItemClick}>Hospital Department</Link>
                   </li>
                   <li>
-                    <Link to="#.">Fire Department</Link>
+                    <Link to="#." onClick={handleItemClick}>Fire Department</Link>
                   </li>
                   <li>
-                    <Link to="#.">Legal Department</Link>
+                    <Link to="#." onClick={handleItemClick}>Legal Department</Link>
                   </li>
                   <li>
-                    <Link to="#.">Disability Welfare</Link>
+                    <Link to="#." onClick={handleItemClick}>Disability Welfare</Link>
                   </li>
                   <li>
-                    <Link to="#.">Store & Records Department</Link>
+                    <Link to="#." onClick={handleItemClick}>Store & Records Department</Link>
                   </li>
                   <li>
-                    <Link to="#.">Marriage Registration</Link>
+                    <Link to="#." onClick={handleItemClick}>Marriage Registration</Link>
                   </li>
                   <li>
-                    <Link to="#.">Birth & Death Department</Link>
+                    <Link to="#." onClick={handleItemClick}>Birth & Death Department</Link>
                   </li>
                 </ul>
               </li>
@@ -200,27 +213,27 @@ const Sidebar = () => {
                 </Link>
                 <ul className={openSubmenu === "aboutkbmc" ? "open" : ""}>
                   <li>
-                    <Link to="/history">History</Link>
+                    <Link to="/history" onClick={handleItemClick}>History</Link>
                   </li>
                   <li>
-                    <Link to="/wards">Wards</Link>
+                    <Link to="/wards" onClick={handleItemClick}>Wards</Link>
                   </li>
                   <li>
-                    <Link to="/elected-wings">Elected Wings</Link>
+                    <Link to="/elected-wings" onClick={handleItemClick}>Elected Wings</Link>
                   </li>
                   <li>
-                    <Link to="/functions">Functions</Link>
+                    <Link to="/functions" onClick={handleItemClick}>Functions</Link>
                   </li>
                   <li>
-                    <Link to="/previous-officers">
+                    <Link to="/previous-officers" onClick={handleItemClick}>
                       Previous Chief officers of the council
                     </Link>
                   </li>
                   <li>
-                    <Link to="/previous-presidents">Previous Presidents</Link>
+                    <Link to="/previous-presidents" onClick={handleItemClick}>Previous Presidents</Link>
                   </li>
                   <li>
-                    <Link to="/awards">Awards</Link>
+                    <Link to="/awards" onClick={handleItemClick}>Awards</Link>
                   </li>
                 </ul>
               </li>
@@ -236,37 +249,37 @@ const Sidebar = () => {
                 </Link>
                 <ul className={openSubmenu === "cityprofile" ? "open" : ""}>
                   <li>
-                    <Link to="/property-holder">Property Holder</Link>
+                    <Link to="/property-holder" onClick={handleItemClick}>Property Holder</Link>
                   </li>
                   <li>
-                    <Link to="/muncipal-properties">Muncipal Properties</Link>
+                    <Link to="/muncipal-properties" onClick={handleItemClick}>Muncipal Properties</Link>
                   </li>
                   <li>
-                    <Link to="/schools">Schools</Link>
+                    <Link to="/schools" onClick={handleItemClick}>Schools</Link>
                   </li>
                   <li>
-                    <Link to="/garden">Gardens</Link>
+                    <Link to="/garden" onClick={handleItemClick}>Gardens</Link>
                   </li>
                   <li>
-                    <Link to="/electric">Electric</Link>
+                    <Link to="/electric" onClick={handleItemClick}>Electric</Link>
                   </li>
                   <li>
-                    <Link to="/roads">Roads</Link>
+                    <Link to="/roads" onClick={handleItemClick}>Roads</Link>
                   </li>
                   <li>
-                    <Link to="/tree-census">Tree Census</Link>
+                    <Link to="/tree-census" onClick={handleItemClick}>Tree Census</Link>
                   </li>
                   <li>
-                    <Link to="/health">Health</Link>
+                    <Link to="/health" onClick={handleItemClick}>Health</Link>
                   </li>
                   <li>
-                    <Link to="/ponds-talao">Ponds / Talao</Link>
+                    <Link to="/ponds-talao" onClick={handleItemClick}>Ponds / Talao</Link>
                   </li>
                   <li>
-                    <Link to="/fire-station">Fire Station</Link>
+                    <Link to="/fire-station" onClick={handleItemClick}>Fire Station</Link>
                   </li>
                   <li>
-                    <Link to="/private-hospital">Private Hospital</Link>
+                    <Link to="/private-hospital" onClick={handleItemClick}>Private Hospital</Link>
                   </li>
                 </ul>
               </li>
@@ -282,52 +295,52 @@ const Sidebar = () => {
                 </Link>
                 <ul className={openSubmenu === "schemes" ? "open" : ""}>
                   <li>
-                    <Link to="#.">NULM</Link>
+                    <Link to="#." onClick={handleItemClick}>NULM</Link>
                   </li>
                   <li>
-                    <Link to="#.">PMAY</Link>
+                    <Link to="#." onClick={handleItemClick}>PMAY</Link>
                   </li>
                   <li>
-                    <Link to="#.">NUHM</Link>
+                    <Link to="#." onClick={handleItemClick}>NUHM</Link>
                   </li>
                   <li>
-                    <Link to="#.">Amrut</Link>
+                    <Link to="#." onClick={handleItemClick}>Amrut</Link>
                   </li>
                   <li>
-                    <Link to="#.">Swachh Bharat</Link>
+                    <Link to="#." onClick={handleItemClick}>Swachh Bharat</Link>
                   </li>
                 </ul>
               </li>
               <li>
                 <Link to="/user">
-                  <i class="fa fa-calendar-check-o"></i>Add User
+                  <i class="fa fa-calendar-check-o" onClick={handleItemClick}></i>Add User
                 </Link>
               </li>
               <li>
                 <Link to="/privacy-policy">
-                  <i class="fa fa-calendar-check-o"></i>Privacy Policy
+                  <i class="fa fa-calendar-check-o" onClick={handleItemClick}></i>Privacy Policy
                 </Link>
               </li>
               <li>
                 <Link to="/terms-conditions">
-                  <i class="fa fa-calendar-check-o"></i>Terms & Conditions
+                  <i class="fa fa-calendar-check-o" onClick={handleItemClick}></i>Terms & Conditions
                 </Link>
               </li>
               <li>
                 <Link to="/contact-us">
-                  <i class="fa fa-calendar-check-o"></i>Contact Us{" "}
+                  <i class="fa fa-calendar-check-o" onClick={handleItemClick}></i>Contact Us{" "}
                 </Link>
               </li>
               <li>
                 <Link to="/notification">
-                  <i class="fa fa-calendar-check-o"></i>Notifications{" "}
+                  <i class="fa fa-calendar-check-o" onClick={handleItemClick}></i>Notifications{" "}
                 </Link>
               </li>
             </ul>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

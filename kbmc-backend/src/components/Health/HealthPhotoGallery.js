@@ -119,22 +119,22 @@ const HealthPhotoGallery = () => {
     };
     return (
         <>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="card-box">
-                        <div class="card-block">
-                            <div class="row">
-                                <div class="col-sm-4 col-3">
-                                    <h4 class="page-title">Photo Gallery</h4>
+            <div className="row">
+                <div className="col-lg-12">
+                    <div className="card-box">
+                        <div className="card-block">
+                            <div className="row">
+                                <div className="col-sm-4 col-3">
+                                    <h4 className="page-title">Photo Gallery</h4>
                                 </div>
-                                <div class="col-sm-8 col-9 text-right m-b-20">
+                                <div className="col-sm-8 col-9 text-right m-b-20">
                                     <button onClick={() => setShowAddModal(true)} className="btn btn-primary btn-rounded float-right">
                                         <i className="fa fa-plus"></i> Add New
                                     </button>
                                 </div>
                             </div>
-                            <div class="table-responsive">
-                                <table class="table table-bordered m-b-0">
+                            <div className="table-responsive">
+                                <table className="table table-bordered m-b-0">
                                     <thead>
                                         <tr>
                                             <th width="10%">Sr. No.</th>
