@@ -131,13 +131,13 @@ const Functions = () => {
                               <td>{func.description}</td>
                               <td>
                                 <button
-                                  className="btn btn-success btn-sm mx-1"
+                                  className="btn btn-success btn-sm m-t-10"
                                   onClick={() => handleEditClick(func)}
                                 >
                                   Edit
                                 </button>
                                 <button
-                                  className="btn btn-danger btn-sm"
+                                  className="btn btn-danger btn-sm m-t-10"
                                   onClick={() => handleDeleteClick(func)}
                                 >
                                   Delete

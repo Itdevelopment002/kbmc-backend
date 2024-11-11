@@ -225,7 +225,7 @@ const ElectedWings = () => {
                             <td>{correspondent.mobileNo}</td>
                             <td>
                               <button
-                                className="btn btn-success btn-sm mx-1"
+                                className="btn btn-success btn-sm m-t-10"
                                 onClick={() =>
                                   handleEditClick(correspondent.id)
                                 }
@@ -233,7 +233,7 @@ const ElectedWings = () => {
                                 Edit
                               </button>
                               <button
-                                className="btn btn-danger btn-sm"
+                                className="btn btn-danger btn-sm m-t-10"
                                 onClick={() =>
                                   handleDeleteClick(correspondent.id)
                                 }
