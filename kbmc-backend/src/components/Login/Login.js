@@ -71,17 +71,17 @@ const Login = ({ onLogin }) => {
 
   return (
     <div className="login-page">
-      <div className="row m-0 h-100">
+      <div className=" row row1 m-0 h-100">
         {/* Left Div */}
         <div className="col-md-6 d-none d-md-block left-side"></div>
 
         {/* Right Div */}
         <div className="col-md-6 d-flex align-items-center justify-content-center right-side">
-          <div className="form-container form-container1 text-center">
+          <div className="form-container form-container1 ">
             <img src={img} alt="Logo" className="mb-4" />
             <form>
               <div className="mb-3 text-start">
-                <label className="mb-2 label1">Username or Email</label>
+                <label className="mb-2 label1 text-start">Username or Email</label>
                 <input
                   type="text"
                   className="form-control form-control1"
@@ -112,9 +112,11 @@ const Login = ({ onLogin }) => {
                   Forget your Password?
                 </Link>
               </div>
-              <button onClick={onSubmit} className="btn btn-primary btn1">
-                Login
-              </button>
+              <div className="button-container">
+                <button onClick={onSubmit} className="btn btn-primary btn1">
+                  Login
+                </button>
+              </div>
             </form>
           </div>
         </div>
