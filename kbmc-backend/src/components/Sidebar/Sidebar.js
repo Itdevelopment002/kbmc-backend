@@ -31,38 +31,38 @@ const Sidebar = () => {
                 </Link>
               </li>
               <li className="submenu">
-                <a href="#." onClick={() => toggleSubmenu("subservices")}>
+                <Link to="#." onClick={() => toggleSubmenu("subservices")}>
                   <i className="fa fa-user"></i> <span>Sub Services </span>{" "}
                   <span
                     className={`menu-arrow ${
                       openSubmenu === "subservices" ? "rotate" : ""
                     }`}
                   ></span>
-                </a>
+                </Link>
                 <ul className={openSubmenu === "subservices" ? "open" : ""}>
                   <li>
-                    <a href="/public-disclosure">Public Disclosure</a>
+                    <Link to="/public-disclosure">Public Disclosure</Link>
                   </li>
                   <li>
-                    <a href="/citizen-charter">Citizen Charter</a>
+                    <Link to="/citizen-charter">Citizen Charter</Link>
                   </li>
                   <li>
-                    <a href="/rts">Right to Service</a>
+                    <Link to="/rts">Right to Service</Link>
                   </li>
                   <li>
-                    <a href="#.">Development Plan</a>
+                    <Link to="#.">Development Plan</Link>
                   </li>
                   <li>
-                    <a href="#.">Downloads</a>
+                    <Link to="#.">Downloads</Link>
                   </li>
                   <li>
-                    <a href="#.">City Map</a>
+                    <Link to="#.">City Map</Link>
                   </li>
                   <li>
-                    <a href="#.">Elected Wing</a>
+                    <Link to="#.">Elected Wing</Link>
                   </li>
                   <li>
-                    <a href="#.">Official Publications</a>
+                    <Link to="#.">Official Publications</Link>
                   </li>
                 </ul>
               </li>

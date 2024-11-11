@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import api from "../api";
+import {Link} from "react-router-dom"
 
 const Contact = () => {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
@@ -56,7 +57,7 @@ const Contact = () => {
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
               <li class="breadcrumb-item">
-                <a href="#.">Home</a>
+                <Link to="#.">Home</Link>
               </li>
               <li class="breadcrumb-item active" aria-current="page">
                 Contact Us

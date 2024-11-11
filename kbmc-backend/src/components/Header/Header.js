@@ -1,5 +1,6 @@
 import React from "react";
 import img from "../../assets/img/user.jpg"
+import { Link } from "react-router-dom";
 
 const Header = () => {
 
@@ -8,23 +9,23 @@ const Header = () => {
       <div class="main-wrapper">
         <div class="header">
           <div class="header-left">
-            <a href="#." class="logo">
+            <Link to="#." class="logo">
               KBMC
-            </a>
+            </Link>
           </div>
-          <a id="mobile_btn" class="mobile_btn float-left" href="#sidebar">
+          <Link id="mobile_btn" class="mobile_btn float-left" to="#sidebar">
             <i class="fa fa-bars"></i>
-          </a>
+          </Link>
           <ul class="nav user-menu float-right">
             <li class="nav-item dropdown d-none d-sm-block">
-              <a
-                href="#."
+              <Link
+                to="#."
                 class="dropdown-toggle nav-link"
                 data-toggle="dropdown"
               >
                 <i class="fa fa-bell-o"></i>{" "}
                 <span class="badge badge-pill bg-danger float-right">3</span>
-              </a>
+              </Link>
               <div class="dropdown-menu notifications">
                 <div class="topnav-dropdown-header">
                   <span>Notifications</span>
@@ -32,7 +33,7 @@ const Header = () => {
                 <div class="drop-scroll">
                   <ul class="notification-list">
                     <li class="notification-message">
-                      <a href="activities.html">
+                      <Link to="activities.html">
                         <div class="media">
                           <span class="avatar">
                             <img
@@ -54,10 +55,10 @@ const Header = () => {
                             </p>
                           </div>
                         </div>
-                      </a>
+                      </Link>
                     </li>
                     <li class="notification-message">
-                      <a href="activities.html">
+                      <Link to="activities.html">
                         <div class="media">
                           <span class="avatar">V</span>
                           <div class="media-body">
@@ -73,10 +74,10 @@ const Header = () => {
                             </p>
                           </div>
                         </div>
-                      </a>
+                      </Link>
                     </li>
                     <li class="notification-message">
-                      <a href="activities.html">
+                      <Link to="activities.html">
                         <div class="media">
                           <span class="avatar">L</span>
                           <div class="media-body">
@@ -94,10 +95,10 @@ const Header = () => {
                             </p>
                           </div>
                         </div>
-                      </a>
+                      </Link>
                     </li>
                     <li class="notification-message">
-                      <a href="activities.html">
+                      <Link to="activities.html">
                         <div class="media">
                           <span class="avatar">G</span>
                           <div class="media-body">
@@ -113,10 +114,10 @@ const Header = () => {
                             </p>
                           </div>
                         </div>
-                      </a>
+                      </Link>
                     </li>
                     <li class="notification-message">
-                      <a href="activities.html">
+                      <Link to="activities.html">
                         <div class="media">
                           <span class="avatar">V</span>
                           <div class="media-body">
@@ -132,18 +133,18 @@ const Header = () => {
                             </p>
                           </div>
                         </div>
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </div>
                 <div class="topnav-dropdown-footer">
-                  <a href="activities.html">View all Notifications</a>
+                  <Link to="activities.html">View all Notifications</Link>
                 </div>
               </div>
             </li>
             <li class="nav-item dropdown has-arrow">
-              <a
-                href="#."
+              <Link
+                to="#."
                 class="dropdown-toggle nav-link user-link"
                 data-toggle="dropdown"
               >
@@ -157,45 +158,45 @@ const Header = () => {
                   <span class="status online"></span>
                 </span>
                 <span>Admin</span>
-              </a>
+              </Link>
               <div class="dropdown-menu">
-                <a class="dropdown-item" href="profile.html">
+                <Link class="dropdown-item" to="profile.html">
                   My Profile
-                </a>
-                <a class="dropdown-item" href="edit-profile.html">
+                </Link>
+                <Link class="dropdown-item" to="edit-profile.html">
                   Edit Profile
-                </a>
-                <a class="dropdown-item" href="settings.html">
+                </Link>
+                <Link class="dropdown-item" to="settings.html">
                   Settings
-                </a>
-                <a class="dropdown-item" href="login.html">
+                </Link>
+                <Link class="dropdown-item" to="login.html">
                   Logout
-                </a>
+                </Link>
               </div>
             </li>
           </ul>
           <div class="dropdown mobile-user-menu float-right">
-            <a
-              href="#."
+            <Link
+              to="#."
               class="dropdown-toggle"
               data-toggle="dropdown"
               aria-expanded="false"
             >
               <i class="fa fa-ellipsis-v"></i>
-            </a>
+            </Link>
             <div class="dropdown-menu dropdown-menu-right">
-              <a class="dropdown-item" href="profile.html">
+              <Link class="dropdown-item" to="profile.html">
                 My Profile
-              </a>
-              <a class="dropdown-item" href="edit-profile.html">
+              </Link>
+              <Link class="dropdown-item" to="edit-profile.html">
                 Edit Profile
-              </a>
-              <a class="dropdown-item" href="settings.html">
+              </Link>
+              <Link class="dropdown-item" to="settings.html">
                 Settings
-              </a>
-              <a class="dropdown-item" href="login.html">
+              </Link>
+              <Link class="dropdown-item" to="login.html">
                 Logout
-              </a>
+              </Link>
             </div>
           </div>
         </div>
