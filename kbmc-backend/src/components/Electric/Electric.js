@@ -161,21 +161,21 @@ const Electric = () => {
                 <div>
                     <ul className="pagination">
                         <li className={`page-item ${currentPage === 1 ? "disabled" : ""}`}>
-                            <a className="page-link" href="#" onClick={() => changePage(currentPage - 1)}>
+                            <Link className="page-link" to="#" onClick={() => changePage(currentPage - 1)}>
                                 Previous
-                            </a>
+                            </Link>
                         </li>
                         {[...Array(totalPages)].map((_, index) => (
                             <li key={index} className={`page-item ${currentPage === index + 1 ? "active" : ""}`}>
-                                <a className="page-link" href="#" onClick={() => changePage(index + 1)}>
+                                <Link className="page-link" to="#" onClick={() => changePage(index + 1)}>
                                     {index + 1}
-                                </a>
+                                </Link>
                             </li>
                         ))}
                         <li className={`page-item ${currentPage === totalPages ? "disabled" : ""}`}>
-                            <a className="page-link" href="#" onClick={() => changePage(currentPage + 1)}>
+                            <Link className="page-link" to="#" onClick={() => changePage(currentPage + 1)}>
                                 Next
-                            </a>
+                            </Link>
                         </li>
                     </ul>
                 </div>

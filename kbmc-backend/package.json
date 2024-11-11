@@ -24,6 +24,7 @@
     "react-scrollbars-custom": "^4.1.1",
     "react-slimscroll": "^0.0.2",
     "react-toastify": "^10.0.6",
+    "sweetalert2": "^11.14.5",
     "select2": "^4.1.0-rc.0",
     "web-vitals": "^2.1.4"
   },
