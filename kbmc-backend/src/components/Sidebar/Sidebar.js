@@ -10,7 +10,9 @@ const Sidebar = ({ isOpen, closeSidebar }) => {
   };
 
   const handleItemClick = () => {
-    closeSidebar(); // Close the sidebar when an item is clicked
+    if (isOpen) {
+      closeSidebar(); // Close the sidebar when it's open and an item is clicked
+    }
   };
 
 
