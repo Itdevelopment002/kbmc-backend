@@ -151,42 +151,87 @@ const Services = () => {
             </div>
           </div>
 
-          {/* Edit Modal */}
-          <div className="modal fade" id="editModal" tabIndex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true" style={{ display: showEditModal ? 'block' : 'none' }}>
-            <div className="modal-dialog modal-dialog-centered" role="document">
-              <div className="modal-content">
-                <div className="modal-header">
-                  <h5 className="modal-title" id="editModalLabel">Edit Service</h5>
-                  <button type="button" className="close" onClick={handleCloseEditModal}>&times;</button>
-                </div>
-                <div className="modal-body">
-                  <input type="text" className="form-control mb-2" placeholder="Service Heading" value={selectedService?.service_heading || ''} onChange={(e) => setSelectedService({ ...selectedService, service_heading: e.target.value })} />
-                  <input type="text" className="form-control mb-2" placeholder="Service Link" value={selectedService?.service_link || ''} onChange={(e) => setSelectedService({ ...selectedService, service_link: e.target.value })} />
-                  <input type="file" className="form-control mb-2" onChange={(e) => handleFileChange(e, 'mainIcon')} />
-                  <input type="file" className="form-control mb-2" onChange={(e) => handleFileChange(e, 'hoverIcon')} />
-                </div>
-                <div className="modal-footer">
-                  <button type="button" className="btn btn-secondary" onClick={handleCloseEditModal}>Close</button>
-                  <button type="button" className="btn btn-primary" onClick={handleSaveEdit}>Save changes</button>
-                </div>
-              </div>
-            </div>
-          </div>
-
           {/* Delete Modal */}
-          <div className="modal fade" id="deleteModal" tabIndex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true" style={{ display: showDeleteModal ? 'block' : 'none' }}>
-            <div className="modal-dialog modal-dialog-centered" role="document">
-              <div className="modal-content">
-                <div className="modal-body">
-                  <h4>Are you sure you want to delete this service?</h4>
-                </div>
-                <div className="modal-footer">
-                  <button type="button" className="btn btn-secondary" onClick={handleCloseDeleteModal}>Close</button>
-                  <button type="button" className="btn btn-danger" onClick={handleDelete}>Delete</button>
+          {showDeleteModal && (
+            <div className="modal fade show d-block" tabIndex="-1" aria-hidden="true" role="dialog">
+              <div className="modal-dialog modal-dialog-centered">
+                <div className="modal-content">
+                  <div className="modal-body text-center">
+                    <h4>Are you sure you want to delete this service?</h4>
+                  </div>
+                  <div className="modal-footer justify-content-center">
+                    <button type="button" className="btn btn-sm btn-secondary" onClick={handleCloseDeleteModal}>Close</button>
+                    <button type="button" className="btn btn-sm btn-danger" onClick={handleDelete}>Delete</button>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          )}
+
+          {/* Edit Modal */}
+          {showEditModal && (
+            <div className="modal fade show d-block" tabIndex="-1" aria-hidden="true" role="dialog">
+              <div className="modal-dialog modal-dialog-centered">
+                <div className="modal-content">
+                  <div className="modal-header">
+                    <h5 className="modal-title">Edit Service</h5>
+                    <button type="button" className="close" onClick={handleCloseEditModal}>
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div className="modal-body">
+                    <form>
+                      <div className="mb-3">
+                        <label className="form-label">Service Heading</label>
+                        <input
+                          type="text"
+                          className="form-control"
+                          placeholder="Service Heading"
+                          value={selectedService?.service_heading || ''}
+                          onChange={(e) =>
+                            setSelectedService({ ...selectedService, service_heading: e.target.value })
+                          }
+                        />
+                      </div>
+                      <div className="mb-3">
+                        <label className="form-label">Service Link</label>
+                        <input
+                          type="text"
+                          className="form-control"
+                          placeholder="Service Link"
+                          value={selectedService?.service_link || ''}
+                          onChange={(e) =>
+                            setSelectedService({ ...selectedService, service_link: e.target.value })
+                          }
+                        />
+                      </div>
+                      <div className="mb-3">
+                        <label className="form-label">Service Icon (Main Icon)</label>
+                        <input
+                          type="file"
+                          className="form-control"
+                          onChange={(e) => handleFileChange(e, 'mainIcon')}
+                        />
+                      </div>
+                      <div className="mb-3">
+                        <label className="form-label">Service Icon (Hover Icon)</label>
+                        <input
+                          type="file"
+                          className="form-control"
+                          onChange={(e) => handleFileChange(e, 'hoverIcon')}
+                        />
+                      </div>
+                    </form>
+                  </div>
+
+                  <div className="modal-footer">
+                    <button type="button" className="btn btn-sm btn-secondary" onClick={handleCloseEditModal}>Close</button>
+                    <button type="button" className="btn brn-sm btn-primary" onClick={handleSaveEdit}>Save changes</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
       <ToastContainer />

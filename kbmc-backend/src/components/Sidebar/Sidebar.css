@@ -54,3 +54,78 @@
 .sidebar:hover::-webkit-scrollbar-thumb {
   background-color: rgba(0, 0, 0, 0.3); 
 }
+
+.sidebar {
+  height: 100vh; /* Ensure sidebar takes the full viewport height */
+}
+
+
+/* .sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px; 
+  width: 250px;
+  height: 100%;
+  transition: left 0.3s ease-in-out; 
+}
+
+.sidebar.opened {
+  left: 0;
+} */
+
+
+/* Sidebar style */
+/* Sidebar style */
+.sidebar {
+  position: fixed;
+  left: -250px; /* Initially hidden off-screen */
+  width: 220px; /* Sidebar width */
+  height: 100%;
+  transition: left 0.3s ease-in-out; /* Smooth transition */
+  z-index: 999;
+}
+
+/* When sidebar is opened (for smaller screens) */
+.sidebar.opened {
+  left: 220px; /* Moves the sidebar to 220px when opened */
+}
+
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: none;
+  z-index: 998;
+}
+
+.sidebar-overlay.opened {
+  display: block; 
+}
+
+/* Large screens: Sidebar is always open */
+@media (min-width: 991px) {
+  .sidebar {
+    left: 0;  
+  }
+  
+
+  .sidebar-overlay {
+    display: none; /* No overlay on large screens */
+  }
+
+  /* Ensure the sidebar is closed by default on larger screens */
+  .sidebar.opened {
+    display: none;
+  }
+}
+
+/* Small screens: Sidebar hidden by default */
+@media (max-width: 990px) {
+  .sidebar-overlay {
+    display: block; /* Overlay visible on small screens */
+  }
+}
+

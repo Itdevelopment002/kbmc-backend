@@ -67,6 +67,12 @@ import AddPreviousOfficers from './components/PreviousOfficers/AddPreviousOffice
 import PreviousOfficers from './components/PreviousOfficers/PreviousOfficers';
 import AddPreviousPresidents from './components/PreviousPresidents/AddPreviousPresidents';
 import PreviousPresidents from './components/PreviousPresidents/PreviousPresidents';
+import HomeVideos from './components/HomeVideos/HomeVideos';
+import AddHomeVideos from './components/HomeVideos/AddHomeVideos';
+import GovWebsiteLink from './components/GovWebsiteLink/GovWebsiteLink';
+import AddGovtWebsiteLink from './components/GovWebsiteLink/AddGovtWebsiteLink';
+import Departments from './components/Departments/Departments';
+import AddDepartments from './components/Departments/AddDepartments';
 
 function App() {
   return (
@@ -129,6 +135,15 @@ function App() {
           <Route path="/previous-officers" element={<PreviousOfficers />} />
           <Route path="/add-previous-presidents" element={<AddPreviousPresidents />} />
           <Route path="/previous-presidents" element={<PreviousPresidents />} />
+          <Route path="/home-videos" element={<HomeVideos />} />
+          <Route path="/add-home-videos" element={<AddHomeVideos />} />
+          <Route path="/gov-website-link" element={<GovWebsiteLink />} />
+          <Route path="/add-gov-website-link" element={<AddGovtWebsiteLink />} />
+          <Route path="/departments" element={<Departments />} />
+          <Route path="/add-departments" element={<AddDepartments />} />
+
+
+
         </Routes>
       </Router>
     </div>

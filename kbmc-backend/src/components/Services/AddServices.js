@@ -90,8 +90,8 @@ const AddServices = () => {
                                             <div className="col-md-4">
                                                 <input
                                                     type="text"
-                                                    className="form-control form-control-lg"
-                                                    placeholder="Enter service heading"
+                                                    className="form-control "
+                                                    placeholder=""
                                                     value={serviceHeading}
                                                     name="serviceHeading"
                                                     onChange={handleChange}
@@ -103,8 +103,8 @@ const AddServices = () => {
                                             <div className="col-md-4 mb-3">
                                                 <input
                                                     type="text"
-                                                    className="form-control form-control-lg"
-                                                    placeholder="Enter service link"
+                                                    className="form-control "
+                                                    placeholder=""
                                                     value={serviceLink}
                                                     name="serviceLink"
                                                     onChange={handleChange}
