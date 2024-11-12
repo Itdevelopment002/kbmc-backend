@@ -103,6 +103,7 @@ const Slider = () => {
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
   );
+  
 
   return (
     <div>

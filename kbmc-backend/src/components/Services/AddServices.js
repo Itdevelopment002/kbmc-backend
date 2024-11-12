@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import api from '../api';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Link } from "react-router-dom";
@@ -10,38 +10,47 @@ const AddServices = () => {
     const [serviceLink, setServiceLink] = useState('');
     const [mainIcon, setMainIcon] = useState(null);
     const [hoverIcon, setHoverIcon] = useState(null);
-    const navigate = useNavigate(); // Initialize useNavigate
+    const [errors, setErrors] = useState({});
+    const navigate = useNavigate();
 
-    const handleFileChange = (file, setFile) => {
+    const validateForm = () => {
+        const errors = {};
+        if (!serviceHeading) errors.serviceHeading = "Service Heading is required.";
+        if (!serviceLink) errors.serviceLink = "Service Link is required.";
+        if (!mainIcon) errors.mainIcon = "Main Icon is required.";
+        if (!hoverIcon) errors.hoverIcon = "Hover Icon is required.";
+        setErrors(errors);
+        return Object.keys(errors).length === 0;
+    };
+
+    const handleFileChange = (file, setFile, fieldName) => {
         if (file && file.type.startsWith('image/')) {
             setFile(file);
+            setErrors((prev) => ({ ...prev, [fieldName]: null }));
         } else {
-            toast.error('Please upload a valid image file.');
+            setErrors((prev) => ({ ...prev, [fieldName]: "Please upload a valid image file." }));
         }
     };
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-
-        if (name === "serviceHeading") {
-            setServiceHeading(value);
-        } else if (name === "serviceLink") {
-            setServiceLink(value);
-        }
+        setErrors((prev) => ({ ...prev, [name]: null }));
+        if (name === "serviceHeading") setServiceHeading(value);
+        if (name === "serviceLink") setServiceLink(value);
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        if (!validateForm()) {
+            return;
+        }
+
         const formData = new FormData();
         formData.append('serviceHeading', serviceHeading);
         formData.append('serviceLink', serviceLink);
-        if (mainIcon) {
-            formData.append('mainIcon', mainIcon);
-        }
-        if (hoverIcon) {
-            formData.append('hoverIcon', hoverIcon);
-        }
+        if (mainIcon) formData.append('mainIcon', mainIcon);
+        if (hoverIcon) formData.append('hoverIcon', hoverIcon);
 
         try {
             const response = await api.post('/services', formData, {
@@ -90,57 +99,54 @@ const AddServices = () => {
                                             <div className="col-md-4">
                                                 <input
                                                     type="text"
-                                                    className="form-control "
-                                                    placeholder=""
+                                                    className="form-control"
                                                     value={serviceHeading}
                                                     name="serviceHeading"
                                                     onChange={handleChange}
-                                                    required />
+                                                />
+                                                {errors.serviceHeading && <span className="text-danger">{errors.serviceHeading}</span>}
                                             </div>
                                         </div>
                                         <div className="form-group row">
                                             <label className="col-form-label col-md-3">Service Link <span className="text-danger">*</span></label>
-                                            <div className="col-md-4 mb-3">
+                                            <div className="col-md-4">
                                                 <input
                                                     type="text"
-                                                    className="form-control "
-                                                    placeholder=""
+                                                    className="form-control"
                                                     value={serviceLink}
                                                     name="serviceLink"
                                                     onChange={handleChange}
-                                                    required
                                                 />
+                                                {errors.serviceLink && <span className="text-danger">{errors.serviceLink}</span>}
                                             </div>
                                         </div>
 
                                         <div className="form-group row">
                                             <label className="col-form-label col-lg-3">Service Icon (Main Icon) <span className="text-danger">*</span></label>
                                             <div className="col-md-4">
-                                                <div className="input-group mb-3">
-                                                    <input
-                                                        type="file"
-                                                        id="mainIconInput"
-                                                        name="mainIcon"
-                                                        className="form-control col-md-12 col-xs-12 userfile"
-                                                        accept="image/*"
-                                                        onChange={(e) => handleFileChange(e.target.files[0], setMainIcon)}
-                                                        required />
-                                                </div>
+                                                <input
+                                                    type="file"
+                                                    id="mainIconInput"
+                                                    name="mainIcon"
+                                                    className="form-control"
+                                                    accept="image/*"
+                                                    onChange={(e) => handleFileChange(e.target.files[0], setMainIcon, 'mainIcon')}
+                                                />
+                                                {errors.mainIcon && <span className="text-danger">{errors.mainIcon}</span>}
                                             </div>
                                         </div>
                                         <div className="form-group row">
                                             <label className="col-form-label col-lg-3">Service Icon (Hover Icon) <span className="text-danger">*</span></label>
                                             <div className="col-md-4">
-                                                <div className="input-group mb-3">
-                                                    <input
-                                                        type="file"
-                                                        id="hoverIconInput"
-                                                        name="hoverIcon"
-                                                        className="form-control col-md-12 col-xs-12 userfile"
-                                                        accept="image/*"
-                                                        onChange={(e) => handleFileChange(e.target.files[0], setHoverIcon)}
-                                                        required />
-                                                </div>
+                                                <input
+                                                    type="file"
+                                                    id="hoverIconInput"
+                                                    name="hoverIcon"
+                                                    className="form-control"
+                                                    accept="image/*"
+                                                    onChange={(e) => handleFileChange(e.target.files[0], setHoverIcon, 'hoverIcon')}
+                                                />
+                                                {errors.hoverIcon && <span className="text-danger">{errors.hoverIcon}</span>}
                                             </div>
                                         </div>
                                         <input type="submit" className="btn btn-primary" value="Submit" />
@@ -153,7 +159,7 @@ const AddServices = () => {
                 </div>
             </div>
         </>
-    )
-}
+    );
+};
 
 export default AddServices;
