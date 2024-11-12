@@ -139,7 +139,7 @@ const TreeCensus = () => {
                                                                     Delete
                                                                 </button>
                                                                 <button
-                                                                    className="btn btn-success btn-sm m-t-10 mx-2"
+                                                                    className="btn btn-success btn-sm m-t-10"
                                                                     onClick={() => handleEditModalOpen(row)}
                                                                 >
                                                                     Edit

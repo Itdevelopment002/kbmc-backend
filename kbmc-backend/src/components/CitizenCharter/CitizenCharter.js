@@ -132,37 +132,37 @@ const CitizenCharter = () => {
 
   return (
     <div>
-      <div class="page-wrapper">
-        <div class="content">
+      <div className="page-wrapper">
+        <div className="content">
           <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item">
+            <ol className="breadcrumb">
+              <li className="breadcrumb-item">
                 <Link to="/">Home</Link>
               </li>
-              <li class="breadcrumb-item active" aria-current="page">
+              <li className="breadcrumb-item active" aria-current="page">
                 Citizen Charter
               </li>
             </ol>
           </nav>
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="card-box">
-                <div class="card-block">
-                  <div class="row">
-                    <div class="col-sm-4 col-3">
-                      <h4 class="page-title m-b-0">Citizen Charter</h4>
+          <div className="row">
+            <div className="col-lg-12">
+              <div className="card-box">
+                <div className="card-block">
+                  <div className="row">
+                    <div className="col-sm-4 col-3">
+                      <h4 className="page-title m-b-0">Citizen Charter</h4>
                     </div>
                   </div>
                   <hr />
-                  <div class="card-block">
+                  <div className="card-block">
                     <form onSubmit={handleAddDepartment}>
-                      <div class="form-group row">
-                        <label class="col-form-label col-md-2">
-                          Department Name <span class="text-danger">*</span>
+                      <div className="form-group row">
+                        <label className="col-form-label col-md-2">
+                          Department Name <span className="text-danger">*</span>
                         </label>
-                        <div class="col-md-4">
+                        <div className="col-md-4">
                           <input
-                            class="form-control form-control-md"
+                            className="form-control form-control-md"
                             type="text"
                             value={newDepartment.name}
                             onChange={(e) =>
@@ -174,12 +174,12 @@ const CitizenCharter = () => {
                           />
                         </div>
                       </div>
-                      <div class="form-group row">
-                        <label class="col-form-label col-lg-2">
-                          Upload PDF <span class="text-danger">*</span>
+                      <div className="form-group row">
+                        <label className="col-form-label col-lg-2">
+                          Upload PDF <span className="text-danger">*</span>
                         </label>
-                        <div class="col-md-4">
-                          <div class="input-group">
+                        <div className="col-md-4">
+                          <div className="input-group">
                             <input
                               type="file"
                               accept=".pdf"
@@ -189,19 +189,19 @@ const CitizenCharter = () => {
                           </div>
                         </div>
                       </div>
-                      <div class="form-group row">
-                        <div class="col-md-2">
+                      <div className="form-group row">
+                        <div className="col-md-2">
                           <input
                             type="submit"
-                            class="btn btn-primary btn-sm"
+                            className="btn btn-primary btn-sm"
                             value="Submit"
                           />
                         </div>
                       </div>
                     </form>
                   </div>
-                  <div class="table-responsive">
-                    <table class="table table-bordered m-b-0">
+                  <div className="table-responsive">
+                    <table className="table table-bordered m-b-0">
                       <thead>
                         <tr>
                           <th width="10%">Sr. No.</th>

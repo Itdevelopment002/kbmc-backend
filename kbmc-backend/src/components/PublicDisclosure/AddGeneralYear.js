@@ -104,32 +104,32 @@ const AddGeneralYear = () => {
   );
   return (
     <div>
-      <div class="page-wrapper">
-        <div class="content">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item">
+      <div className="page-wrapper">
+        <div className="content">
+          <ol className="breadcrumb">
+            <li className="breadcrumb-item">
               <Link to="/">Home</Link>
             </li>
-            <li class="breadcrumb-item">
+            <li className="breadcrumb-item">
               <Link to="/add-general-department">Add General Admin Department</Link>
             </li>
-            <li class="breadcrumb-item active" aria-current="page">
+            <li className="breadcrumb-item active" aria-current="page">
               Add Year
             </li>
           </ol>
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="card-box">
-                <div class="card-block">
-                  <div class="row">
-                    <div class="col-sm-4 col-3">
-                      <h4 class="page-title">Add Year</h4>
+          <div className="row">
+            <div className="col-lg-12">
+              <div className="card-box">
+                <div className="card-block">
+                  <div className="row">
+                    <div className="col-sm-4 col-3">
+                      <h4 className="page-title">Add Year</h4>
                     </div>
                   </div>
                   <form onSubmit={handleSubmit}>
-                    <div class="row">
-                      <div class="col-md-2">
-                        <div class="form-group">
+                    <div className="row">
+                      <div className="col-md-2">
+                        <div className="form-group">
                           <label>Year</label>
                           <input
                             type="text"
@@ -140,8 +140,8 @@ const AddGeneralYear = () => {
                           />
                         </div>
                       </div>
-                      <div class="col-md-3">
-                        <div class="form-group">
+                      <div className="col-md-3">
+                        <div className="form-group">
                           <label>Select Meeting</label>
                           <select
                             className="form-control form-control-md"
@@ -153,8 +153,8 @@ const AddGeneralYear = () => {
                           </select>
                         </div>
                       </div>
-                      <div class="col-md-4">
-                        <div class="form-group">
+                      <div className="col-md-4">
+                        <div className="form-group">
                           <label>PDF Heading</label>
                           <input
                             type="text"
@@ -165,8 +165,8 @@ const AddGeneralYear = () => {
                           />
                         </div>
                       </div>
-                      <div class="col-md-3">
-                        <div class="form-group">
+                      <div className="col-md-3">
+                        <div className="form-group">
                           <label>Upload PDF</label>
                           <input
                             type="file"
@@ -175,18 +175,18 @@ const AddGeneralYear = () => {
                           />
                         </div>
                       </div>
-                      <div class="col-md-2">
+                      <div className="col-md-2">
                         <input
                           type="submit"
-                          class="btn btn-primary"
+                          className="btn btn-primary"
                           value="Submit"
                         />
                       </div>
                     </div>
                   </form>
                   <hr />
-                  <div class="table-responsive mt-4">
-                    <table class="table table-bordered m-b-0">
+                  <div className="table-responsive mt-4">
+                    <table className="table table-bordered m-b-0">
                       <thead>
                         <tr>
                           <th width="10%">Sr. No.</th>
@@ -222,7 +222,7 @@ const AddGeneralYear = () => {
 
                               <td>
                                 <button
-                                  className="btn btn-success btn-sm m-t-10 mx-1"
+                                  className="btn btn-success btn-sm m-t-10"
                                   onClick={() => {
                                     setShowEditModal(true);
                                     setCurrentEditingId(item.id);

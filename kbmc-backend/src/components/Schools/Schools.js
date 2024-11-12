@@ -191,7 +191,7 @@ const Schools = () => {
                 <div className="content">
                     <nav aria-label="breadcrumb">
                         <ol className="breadcrumb">
-                            <li className="breadcrumb-item"><a href="/schools">City Profile</a></li>
+                            <li className="breadcrumb-item"><Link to="/schools">City Profile</Link></li>
                             <li className="breadcrumb-item active" aria-current="page">Schools</li>
                         </ol>
                     </nav>
@@ -204,7 +204,7 @@ const Schools = () => {
                                             <h4 className="page-title">Schools</h4>
                                         </div>
                                         <div className="col-sm-8 col-9 text-right m-b-20">
-                                            <a href="/add-schools" className="btn btn-primary btn-rounded float-right"><i className="fa fa-plus"></i> Add Schools</a>
+                                            <Link to="/add-schools" className="btn btn-primary btn-rounded float-right"><i className="fa fa-plus"></i> Add Schools</Link>
                                         </div>
                                     </div>
                                     <div className="table-responsive">
@@ -256,7 +256,7 @@ const Schools = () => {
                                             <h4 className="page-title">School Photos</h4>
                                         </div>
                                         <div className="col-sm-8 col-9 text-right m-b-20">
-                                            <a href="/add-schools" className="btn btn-primary btn-rounded float-right"><i className="fa fa-plus"></i> Add Photos</a>
+                                            <Link to="/add-schools" className="btn btn-primary btn-rounded float-right"><i className="fa fa-plus"></i> Add Photos</Link>
                                         </div>
                                     </div>
                                     <div className="table-responsive">
@@ -267,12 +267,12 @@ const Schools = () => {
                                                         
 
                                                         <td key={item.id} className="text-center">
-                                                            <a href={`${baseURL}${item.image_path}`} className="glightbox">
+                                                            <Link to={`${baseURL}${item.image_path}`} className="glightbox">
                                                                 <img width="100px" src={`${baseURL}${item.image_path}`} alt="School" />
-                                                            </a>
+                                                            </Link>
                                                             <br />
-                                                            <a
-                                                                href="#."
+                                                            <Link
+                                                                to="#."
                                                                 data-toggle="modal"
                                                                 data-target="#deleteModal"
                                                                 className="btn btn-danger btn-sm m-t-10"
@@ -283,16 +283,16 @@ const Schools = () => {
                                                                 }}
                                                             >
                                                                 <i className="fa fa-trash-o" aria-hidden="true"></i>
-                                                            </a>
-                                                            <a
-                                                                href="#."
+                                                            </Link>
+                                                            <Link
+                                                                to="#."
                                                                 data-toggle="modal"
                                                                 className="btn btn-success btn-sm m-t-10"
                                                                 data-target="#editModal"
                                                                 onClick={() => openEditModal(item, "school-image")}
                                                             >
                                                                 <i className="fa fa-pencil-square-o" aria-hidden="true"></i>
-                                                            </a>
+                                                            </Link>
                                                         </td>
                                                     ))}
 

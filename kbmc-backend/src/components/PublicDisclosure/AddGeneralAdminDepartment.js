@@ -196,7 +196,6 @@ const AddGeneralAdminDepartment = () => {
                               <Link
                                 to="/add-general-department-year"
                                 className="btn btn-primary btn-sm m-t-10"
-                                style={{ marginRight: "10px" }}
                               >
                                 Add
                               </Link>
@@ -208,7 +207,6 @@ const AddGeneralAdminDepartment = () => {
                                     heading.departments_heading
                                   )
                                 }
-                                style={{ marginRight: "10px" }}
                               >
                                 Edit
                               </button>

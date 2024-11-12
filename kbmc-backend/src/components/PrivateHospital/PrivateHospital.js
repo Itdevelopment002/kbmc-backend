@@ -177,7 +177,7 @@ const PrivateHospital = () => {
                                                                 Edit
                                                             </button>
                                                             <button
-                                                                className="btn btn-danger btn-sm m-t-10 mx-2"
+                                                                className="btn btn-danger btn-sm m-t-10"
                                                                 onClick={() => handleDeleteModalOpen(hospital)}
                                                             >
                                                                 Delete

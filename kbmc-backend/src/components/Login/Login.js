@@ -4,8 +4,11 @@ import img from "../../assets/img/kbmc_logo.jpg";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import api from "../api";
+import { useNavigate } from "react-router-dom";
 
 const Login = ({ onLogin }) => {
+
+  const navigate = useNavigate();
 
   const [userData, setData] = useState({
     username: "",
@@ -56,6 +59,7 @@ const Login = ({ onLogin }) => {
       const response = await api.post("/login", userData); // Ensure API returns a token
       localStorage.setItem("authToken", response.data.token); // Store token
       onLogin(); // Notify parent of successful login
+      navigate("/");
       Swal.fire({
         icon: "success",
         title: "Success!",

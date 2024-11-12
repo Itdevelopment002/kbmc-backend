@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import api from "../api";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const AddUsers = () => {
   const [formData, setFormData] = useState({
@@ -40,10 +40,10 @@ const AddUsers = () => {
         <div className="content">
           <ol className="breadcrumb">
             <li className="breadcrumb-item">
-              <a href="/">Home</a>
+              <Link to="/">Home</Link>
             </li>
             <li className="breadcrumb-item active" aria-current="page">
-              <a href="/user">User</a>
+              <Link to="/user">User</Link>
             </li>
             <li className="breadcrumb-item active" aria-current="page">
               Add User

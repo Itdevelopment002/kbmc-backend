@@ -1,6 +1,21 @@
 import React, { useState } from "react";
 import "./Sidebar.css";
 import { Link } from "react-router-dom";
+import { BiSliderAlt } from "react-icons/bi";
+import { MdMiscellaneousServices } from "react-icons/md";
+import { GrServices } from "react-icons/gr";
+import { ImNewspaper } from "react-icons/im";
+import { GrGallery } from "react-icons/gr";
+import { FaLink } from "react-icons/fa";
+import { BsFillMenuButtonWideFill } from "react-icons/bs";
+import { BiSolidWidget } from "react-icons/bi";
+import { SiDeutschepost } from "react-icons/si";
+import { IoPersonAdd } from "react-icons/io5";
+import { MdPrivacyTip } from "react-icons/md";
+import { BiMessageSquareError } from "react-icons/bi";
+import { MdContactMail } from "react-icons/md";
+import { MdNotificationsActive } from "react-icons/md";
+
 
 const Sidebar = ({ isOpen, closeSidebar }) => {
   const [openSubmenu, setOpenSubmenu] = useState(null);
@@ -11,7 +26,7 @@ const Sidebar = ({ isOpen, closeSidebar }) => {
 
   const handleItemClick = () => {
     if (isOpen) {
-      closeSidebar(); // Close the sidebar when it's open and an item is clicked
+      closeSidebar(); 
     }
   };
 
@@ -27,27 +42,27 @@ const Sidebar = ({ isOpen, closeSidebar }) => {
 
       {/* Sidebar component */}
       <div className={`sidebar ${isOpen ? "opened" : ""}`}>
-        <div class="sidebar-inner">
-          <div id="sidebar-menu" class="sidebar-menu">
+        <div className="sidebar-inner">
+          <div id="sidebar-menu" className="sidebar-menu">
             <ul>
-              <li class="active">
+              <li className="active">
                 <Link to="/" onClick={handleItemClick}>
-                  <i class="fa fa-dashboard"></i>Main Menu
+                  <i className="fa fa-dashboard"></i>Main Menu
                 </Link>
               </li>
               <li>
                 <Link to="/slider" onClick={handleItemClick}>
-                  <i class="fa fa-user-md"></i> Slider
+                  <i className="fa"><BiSliderAlt /></i> Slider
                 </Link>
               </li>
               <li>
                 <Link to="/services" onClick={handleItemClick}>
-                  <i class="fa fa-user-md"></i> Services
+                  <i className="fa"><MdMiscellaneousServices /></i> Services
                 </Link>
               </li>
               <li className="submenu">
                 <Link to="#." onClick={() => toggleSubmenu("subservices")}>
-                  <i className="fa fa-user"></i> <span>Sub Services </span>{" "}
+                  <i className="fa"><GrServices /></i> <span>Sub Services </span>{" "}
                   <span
                     className={`menu-arrow ${
                       openSubmenu === "subservices" ? "rotate" : ""
@@ -83,22 +98,22 @@ const Sidebar = ({ isOpen, closeSidebar }) => {
               </li>
               <li>
                 <Link to="/home-videos" onClick={handleItemClick}>
-                  <i class="fa fa-user-md"></i> Home Video
+                  <i className="fa fa-video-camera camera"></i> Home Video
                 </Link>
               </li>
               <li>
                 <Link to="/news" onClick={handleItemClick}>
-                  <i class="fa fa-wheelchair"></i> News Update
+                  <i className="fa"><ImNewspaper /></i> News Update
                 </Link>
               </li>
               <li>
                 <Link to="/tenders" onClick={handleItemClick}>
-                  <i class="fa fa-calendar"></i> Tenders
+                  <i className="fa fa-calendar"></i> Tenders
                 </Link>
               </li>
               <li className="submenu">
                 <Link to="#." onClick={() => toggleSubmenu("gallery")}>
-                  <i className="fa fa-book"></i> <span>Gallery </span>{" "}
+                  <i className="fa"><GrGallery /></i> <span>Gallery </span>{" "}
                   <span
                     className={`menu-arrow ${
                       openSubmenu === "gallery" ? "rotate" : ""
@@ -113,12 +128,12 @@ const Sidebar = ({ isOpen, closeSidebar }) => {
               </li>
               <li>
                 <Link to="/gov-website-link" onClick={handleItemClick}>
-                  <i class="fa fa-calendar-check-o"></i>Govt. Website Links
+                  <i className="fa "><FaLink /></i>Govt. Website Links
                 </Link>
               </li>
               <li>
                 <Link to="/departments" onClick={handleItemClick}>
-                  <i class="fa fa-calendar-check-o"></i>Departments
+                  <i className="fa fa-calendar-check-o"></i>Departments
                 </Link>
               </li>
 
@@ -205,7 +220,7 @@ const Sidebar = ({ isOpen, closeSidebar }) => {
               </li>
               <li className="submenu">
                 <Link to="#." onClick={() => toggleSubmenu("aboutkbmc")}>
-                  <i className="fa fa-video-camera camera"></i>{" "}
+                  <i className="fa"><BsFillMenuButtonWideFill /></i>{" "}
                   <span> About KBMC</span>{" "}
                   <span
                     className={`menu-arrow ${
@@ -241,7 +256,7 @@ const Sidebar = ({ isOpen, closeSidebar }) => {
               </li>
               <li className="submenu">
                 <Link to="#." onClick={() => toggleSubmenu("cityprofile")}>
-                  <i className="fa fa-video-camera camera"></i>{" "}
+                  <i className=""><BiSolidWidget/></i>{" "}
                   <span> City Profile</span>{" "}
                   <span
                     className={`menu-arrow ${
@@ -287,7 +302,7 @@ const Sidebar = ({ isOpen, closeSidebar }) => {
               </li>
               <li className="submenu">
                 <Link to="#." onClick={() => toggleSubmenu("schemes")}>
-                  <i className="fa fa-video-camera camera"></i>{" "}
+                  <i className="fa"><SiDeutschepost /></i>{" "}
                   <span>Schemes</span>{" "}
                   <span
                     className={`menu-arrow ${
@@ -315,27 +330,27 @@ const Sidebar = ({ isOpen, closeSidebar }) => {
               </li>
               <li>
                 <Link to="/user">
-                  <i class="fa fa-calendar-check-o" onClick={handleItemClick}></i>Add User
+                  <i className="fa" onClick={handleItemClick}><IoPersonAdd/></i>Add User
                 </Link>
               </li>
               <li>
-                <Link to="/privacy-policy">
-                  <i class="fa fa-calendar-check-o" onClick={handleItemClick}></i>Privacy Policy
+                <Link to="/privacy-policy" onClick={handleItemClick}>
+                  <i className="fa"><MdPrivacyTip /></i>Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link to="/terms-conditions">
-                  <i class="fa fa-calendar-check-o" onClick={handleItemClick}></i>Terms & Conditions
+                <Link to="/terms-conditions" onClick={handleItemClick}>
+                  <i className="fa"><BiMessageSquareError /></i>Terms & Conditions
                 </Link>
               </li>
               <li>
-                <Link to="/contact-us">
-                  <i class="fa fa-calendar-check-o" onClick={handleItemClick}></i>Contact Us{" "}
+                <Link to="/contact-us" onClick={handleItemClick}>
+                  <i className="fa" ><MdContactMail /></i>Contact Us{" "}
                 </Link>
               </li>
               <li>
-                <Link to="/notification">
-                  <i class="fa fa-calendar-check-o" onClick={handleItemClick}></i>Notifications{" "}
+                <Link to="/notification" onClick={handleItemClick}>
+                  <i className="fa" ><MdNotificationsActive /></i>Notifications{" "}
                 </Link>
               </li>
             </ul>
