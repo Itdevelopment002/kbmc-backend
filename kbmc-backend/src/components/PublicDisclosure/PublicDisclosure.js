@@ -10,6 +10,7 @@ const PublicDisclosure = () => {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
+  const [errors, setErrors] = useState({});
   const departmentsPerPage = 10;
 
     const fetchDepartments = async () => {
@@ -55,28 +56,33 @@ const PublicDisclosure = () => {
 
   const handleAddDepartment = async (e) => {
     e.preventDefault();
-    if (newDepartment) {
-      const response = await api.post(
-        "/public_disclosure",
-        {
-          department_name: newDepartment,
-        },
-        {
-          headers: {
-            "Content-Type": "application/json",
+    if (validateForm()) {
+      try {
+        const response = await api.post(
+          "/public_disclosure",
+          {
+            department_name: newDepartment,
           },
-        }
-      );
-
-      const data = response.data;
-      setDepartments([
-        ...departments,
-        { id: data.id, department_name: newDepartment },
-      ]);
-      setNewDepartment("");
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        const data = response.data;
+        setDepartments([
+          ...departments,
+          { id: data.id, department_name: newDepartment },
+        ]);
+        setNewDepartment("");
+        setErrors({});
+        fetchDepartments();
+        toast.success("Department added successfully!");
+      } catch (error) {
+        console.error("Error adding department:", error);
+        toast.error("Failed to add department. Please try again.");
+      }
     }
-    fetchDepartments();
-    toast.success("Department added successfully!");
   };
 
   const handleEditDepartment = async (e) => {
@@ -127,6 +133,15 @@ const PublicDisclosure = () => {
       toast.error("Error deleting department! Please try again.");
     }
   };
+  const validateForm = () => {
+    const newErrors = {};
+    if (!newDepartment.trim()) {
+      newErrors.newDepartment = "Department name is required.";
+    }
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   return (
     <div>
       <div className="page-wrapper">
@@ -152,7 +167,7 @@ const PublicDisclosure = () => {
                   </div>
                   <hr />
                   <div className="card-block">
-                    <form onSubmit={handleAddDepartment}>
+                  <form onSubmit={handleAddDepartment}>
                       <div className="form-group row">
                         <label className="col-form-label col-md-2">
                           Department Name <span className="text-danger">*</span>
@@ -160,10 +175,19 @@ const PublicDisclosure = () => {
                         <div className="col-md-4 mt-1">
                           <input
                             type="text"
-                            className="form-control form-control-md"
+                            className={`form-control form-control-md ${
+                              errors.newDepartment ? "is-invalid" : ""
+                            }`}
                             value={newDepartment}
-                            onChange={(e) => setNewDepartment(e.target.value)}
-                          />
+                            onChange={(e) => {
+                              setNewDepartment(e.target.value);
+                              setErrors((prev) => ({ ...prev, newDepartment: "" })); // Clear error
+                            }}                          />
+                          {errors.newDepartment && (
+                            <div className="invalid-feedback">
+                              {errors.newDepartment}
+                            </div>
+                          )}
                         </div>
                         <div className="col-md-2 mt-1">
                           <input
@@ -191,7 +215,7 @@ const PublicDisclosure = () => {
                             <td>{department.department_name}</td>
                             <td>
                               <Link
-                                to="/add-general-department"
+                                to={department.department_name === "General Admin Department" ? "/add-general-department" : "#"}
                                 className="btn btn-primary btn-sm m-t-10"
                                 onClick={() => handleAdd(department.id)}
                               >
