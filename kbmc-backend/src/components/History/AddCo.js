@@ -46,30 +46,30 @@ const AddCo = () => {
   };
   return (
     <div>
-      <div class="page-wrapper">
-        <div class="content">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item">
+      <div className="page-wrapper">
+        <div className="content">
+          <ol className="breadcrumb">
+            <li className="breadcrumb-item">
               <Link to="#.">About KBMC</Link>
             </li>
-            <li class="breadcrumb-item">
+            <li className="breadcrumb-item">
               <Link to="/history">History</Link>
             </li>
-            <li class="breadcrumb-item active" aria-current="page">
+            <li className="breadcrumb-item active" aria-current="page">
               Add CO
             </li>
           </ol>
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="card-box">
-                <div class="card-block">
-                  <div class="row">
-                    <div class="col-sm-4 col-3">
-                      <h4 class="page-title">Add CO</h4>
+          <div className="row">
+            <div className="col-lg-12">
+              <div className="card-box">
+                <div className="card-block">
+                  <div className="row">
+                    <div className="col-sm-4 col-3">
+                      <h4 className="page-title">Add CO</h4>
                     </div>
                   </div>
                   <form onSubmit={handleSubmit}>
-                    <div class="form-group row">
+                    <div className="form-group row">
                       <label className="col-form-label col-md-2">
                         CO Name <span className="text-danger">*</span>
                       </label>
@@ -133,7 +133,7 @@ const AddCo = () => {
                     </div>
                     <input
                       type="submit"
-                      class="btn btn-primary btn-sm"
+                      className="btn btn-primary btn-sm"
                       value="Submit"
                     />
                   </form>

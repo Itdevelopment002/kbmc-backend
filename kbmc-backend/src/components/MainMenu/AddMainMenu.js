@@ -51,35 +51,35 @@ const AddMainMenu = () => {
 
   return (
     <div>
-      <div class="page-wrapper">
-        <div class="content">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item">
+      <div className="page-wrapper">
+        <div className="content">
+          <ol className="breadcrumb">
+            <li className="breadcrumb-item">
               <Link to="/">Home</Link>
             </li>
-            <li class="breadcrumb-item">
+            <li className="breadcrumb-item">
               <Link to="/">Main Menu</Link>
             </li>
-            <li class="breadcrumb-item active" aria-current="page">
+            <li className="breadcrumb-item active" aria-current="page">
               Add Main Menu
             </li>
           </ol>
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="card-box">
-                <div class="card-block">
-                  <div class="row">
-                    <div class="col-sm-4 col-3">
-                      <h4 class="page-title">Add Main Menu</h4>
+          <div className="row">
+            <div className="col-lg-12">
+              <div className="card-box">
+                <div className="card-block">
+                  <div className="row">
+                    <div className="col-sm-4 col-3">
+                      <h4 className="page-title">Add Main Menu</h4>
                     </div>
-                    <div class="col-sm-8 col-9 text-right m-b-20">
+                    <div className="col-sm-8 col-9 text-right m-b-20">
                       <button
                         onClick={() =>
                           handleAddMoreSubMenu(menuItems.length - 1)
                         }
-                        class="btn btn-primary float-right"
+                        className="btn btn-primary float-right"
                       >
-                        <i class="fa fa-plus"></i> Add Sub menu
+                        <i className="fa fa-plus"></i> Add Sub menu
                       </button>
                     </div>
                   </div>
@@ -160,7 +160,7 @@ const AddMainMenu = () => {
                     ))}
                     <input
                       type="submit"
-                      class="btn btn-primary btn-sm"
+                      className="btn btn-primary btn-sm"
                       value="Submit"
                     />
                   </form>

@@ -54,36 +54,36 @@ const AddPreviousOfficers = () => {
 
   return (
     <div>
-      <div class="page-wrapper">
-        <div class="content">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item">
+      <div className="page-wrapper">
+        <div className="content">
+          <ol className="breadcrumb">
+            <li className="breadcrumb-item">
               <Link to="#.">About KBMC</Link>
             </li>
-            <li class="breadcrumb-item">
+            <li className="breadcrumb-item">
               <Link to="/previous-officers">
                 Previous Chief officers of the council
               </Link>
             </li>
-            <li class="breadcrumb-item active" aria-current="page">
+            <li className="breadcrumb-item active" aria-current="page">
               Add Officer
             </li>
           </ol>
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="card-box">
-                <div class="card-block">
-                  <div class="row">
-                    <div class="col-sm-4 col-3">
-                      <h4 class="page-title">Add Officer</h4>
+          <div className="row">
+            <div className="col-lg-12">
+              <div className="card-box">
+                <div className="card-block">
+                  <div className="row">
+                    <div className="col-sm-4 col-3">
+                      <h4 className="page-title">Add Officer</h4>
                     </div>
                   </div>
                   <form onSubmit={handleSubmit}>
-                    <div class="form-group row">
-                      <label class="col-form-label col-md-2">
-                        Officer Name <span class="text-danger">*</span>
+                    <div className="form-group row">
+                      <label className="col-form-label col-md-2">
+                        Officer Name <span className="text-danger">*</span>
                       </label>
-                      <div class="col-md-4">
+                      <div className="col-md-4">
                         <input
                           type="text"
                           className="form-control form-control-md"
@@ -93,11 +93,11 @@ const AddPreviousOfficers = () => {
                         />
                       </div>
                     </div>
-                    <div class="form-group row">
-                      <label class="col-form-label col-md-2">
-                        Start Date <span class="text-danger">*</span>
+                    <div className="form-group row">
+                      <label className="col-form-label col-md-2">
+                        Start Date <span className="text-danger">*</span>
                       </label>
-                      <div class="cal-icon col-md-4">
+                      <div className="cal-icon col-md-4">
                         <Flatpickr
                           id="startDatePicker"
                           className="flatpickr-input form-control form-control-md"
@@ -115,11 +115,11 @@ const AddPreviousOfficers = () => {
                         />
                       </div>
                     </div>
-                    <div class="form-group row">
-                      <label class="col-form-label col-md-2">
-                        End Date <span class="text-danger">*</span>
+                    <div className="form-group row">
+                      <label className="col-form-label col-md-2">
+                        End Date <span className="text-danger">*</span>
                       </label>
-                      <div class="cal-icon col-md-4">
+                      <div className="cal-icon col-md-4">
                         <Flatpickr
                           id="endDatePicker"
                           className="flatpickr-input form-control form-control-md"
@@ -137,12 +137,12 @@ const AddPreviousOfficers = () => {
                         />
                       </div>
                     </div>
-                    <div class="form-group row">
-                      <label class="col-form-label col-lg-2">
+                    <div className="form-group row">
+                      <label className="col-form-label col-lg-2">
                         Upload Officer Image
                       </label>
-                      <div class="col-md-4">
-                        <div class="input-group mb-3">
+                      <div className="col-md-4">
+                        <div className="input-group mb-3">
                           <input
                             type="file"
                             id="userfile"
@@ -155,7 +155,7 @@ const AddPreviousOfficers = () => {
                     </div>
                     <input
                       type="submit"
-                      class="btn btn-primary btn-sm"
+                      className="btn btn-primary btn-sm"
                       value="Submit"
                     />
                   </form>

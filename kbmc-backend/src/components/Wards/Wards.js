@@ -127,10 +127,10 @@ const Wards = () => {
                             <td>
                               <button
                                 onClick={() => handleEditClick(ward)}
-                                className="btn btn-success btn-sm m-t-10 mx-1"
+                                className="btn btn-success btn-sm m-t-10"
                               >
                                 Edit
-                              </button>{" "}
+                              </button>
                               <button
                                 className="btn btn-danger btn-sm m-t-10"
                                 onClick={() => handleDeleteClick(ward)}

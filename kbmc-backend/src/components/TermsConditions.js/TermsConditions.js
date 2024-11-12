@@ -1,31 +1,32 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const TermsConditions = () => {
   return (
     <div>
-      <div class="page-wrapper">
-        <div class="content">
+      <div className="page-wrapper">
+        <div className="content">
           <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item">
-                <a href="#.">Home</a>
+            <ol className="breadcrumb">
+              <li className="breadcrumb-item">
+                <Link to="#.">Home</Link>
               </li>
-              <li class="breadcrumb-item active" aria-current="page">
+              <li className="breadcrumb-item active" aria-current="page">
                 Terms & Conditions
               </li>
             </ol>
           </nav>
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="card-box">
-                <div class="card-block">
-                  <div class="row">
-                    <div class="col-sm-4 col-3">
-                      <h4 class="page-title">Terms & Conditions</h4>
+          <div className="row">
+            <div className="col-lg-12">
+              <div className="card-box">
+                <div className="card-block">
+                  <div className="row">
+                    <div className="col-sm-4 col-3">
+                      <h4 className="page-title">Terms & Conditions</h4>
                     </div>
                   </div>
-                  <div class="table-responsive">
-                    <table class="table table-bordered m-b-0">
+                  <div className="table-responsive">
+                    <table className="table table-bordered m-b-0">
                       <thead>
                         <tr>
                           <th width="10%">Sr. No.</th>
@@ -56,20 +57,20 @@ const TermsConditions = () => {
                             and the support given by the citizens of the city.
                           </td>
                           <td>
-                            <a
-                              href="#."
+                            <Link
+                              to="#."
                               data-toggle="modal"
                               data-target="#deleteModal"
-                              class="btn btn-danger btn-sm m-t-10"
+                              className="btn btn-danger btn-sm m-t-10"
                             >
                               Delete
-                            </a>{" "}
-                            <a
-                              href="edit-terms-conditions.php"
-                              class="btn btn-success btn-sm m-t-10"
+                            </Link>
+                            <Link
+                              to="edit-terms-conditions.php"
+                              className="btn btn-success btn-sm m-t-10"
                             >
                               Edit
-                            </a>
+                            </Link>
                           </td>
                         </tr>
                       </tbody>
@@ -81,27 +82,27 @@ const TermsConditions = () => {
           </div>
 
           <div
-            class="modal delete_modal fade text-center"
+            className="modal delete_modal fade text-center"
             id="deleteModal"
             tabindex="-1"
             role="dialog"
             aria-labelledby="exampleModalLabel"
             aria-hidden="true"
           >
-            <div class="modal-dialog modal-dialog-centered" role="document">
-              <div class="modal-content">
-                <div class="modal-body">
+            <div className="modal-dialog modal-dialog-centered" role="document">
+              <div className="modal-content">
+                <div className="modal-body">
                   <h4>Are you sure you want to delete this item?</h4>
                 </div>
-                <div class="modal-footer text-center">
+                <div className="modal-footer text-center">
                   <button
                     type="button"
-                    class="btn btn-primary btn-lg"
+                    className="btn btn-primary btn-lg"
                     data-dismiss="modal"
                   >
                     Close
                   </button>
-                  <button type="button" class="btn btn-danger btn-lg">
+                  <button type="button" className="btn btn-danger btn-lg">
                     Delete
                   </button>
                 </div>

@@ -1,31 +1,32 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Notifications = () => {
   return (
     <div>
-      <div class="page-wrapper">
-        <div class="content">
+      <div className="page-wrapper">
+        <div className="content">
           <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item">
-                <a href="/">Home</a>
+            <ol className="breadcrumb">
+              <li className="breadcrumb-item">
+                <Link to="/">Home</Link>
               </li>
-              <li class="breadcrumb-item active" aria-current="page">
+              <li className="breadcrumb-item active" aria-current="page">
                 Notifications
               </li>
             </ol>
           </nav>
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="card-box">
-                <div class="card-block">
-                  <div class="row">
-                    <div class="col-sm-4 col-3">
-                      <h4 class="page-title">Notifications</h4>
+          <div className="row">
+            <div className="col-lg-12">
+              <div className="card-box">
+                <div className="card-block">
+                  <div className="row">
+                    <div className="col-sm-4 col-3">
+                      <h4 className="page-title">Notifications</h4>
                     </div>
                   </div>
-                  <div class="table-responsive">
-                    <table class="table table-bordered m-b-0">
+                  <div className="table-responsive">
+                    <table className="table table-bordered m-b-0">
                       <thead>
                         <tr>
                           <th width="8%">Sr. No.</th>
@@ -42,17 +43,17 @@ const Notifications = () => {
                           <td>29 June 2024</td>
                           <td>01:20:30 PM</td>
                           <td>
-                            <a href="#." class="btn btn-success btn-sm m-t-10">
+                            <Link to="#." className="btn btn-success btn-sm m-t-10">
                               Approve
-                            </a>{" "}
-                            <a
-                              href="#."
+                            </Link>{" "}
+                            <Link 
+                              to="#."
                               data-toggle="modal"
                               data-target="#deleteModal"
-                              class="btn btn-danger btn-sm m-t-10"
+                              className="btn btn-danger btn-sm m-t-10"
                             >
                               Disapprove
-                            </a>
+                            </Link>
                           </td>
                         </tr>
                         <tr>
@@ -61,17 +62,17 @@ const Notifications = () => {
                           <td>29 June 2024</td>
                           <td>01:20:30 PM</td>
                           <td>
-                            <a href="#." class="btn btn-success btn-sm m-t-10">
+                            <Link to="#." className="btn btn-success btn-sm m-t-10">
                               Approve
-                            </a>{" "}
-                            <a
-                              href="#."
+                            </Link>{" "}
+                            <Link 
+                              to="#."
                               data-toggle="modal"
                               data-target="#deleteModal"
-                              class="btn btn-danger btn-sm m-t-10"
+                              className="btn btn-danger btn-sm m-t-10"
                             >
                               Disapprove
-                            </a>
+                            </Link>
                           </td>
                         </tr>
                         <tr>
@@ -80,17 +81,17 @@ const Notifications = () => {
                           <td>29 June 2024</td>
                           <td>01:20:30 PM</td>
                           <td>
-                            <a href="#." class="btn btn-success btn-sm m-t-10">
+                            <Link to="#." className="btn btn-success btn-sm m-t-10">
                               Approve
-                            </a>{" "}
-                            <a
-                              href="#."
+                            </Link>{" "}
+                            <Link 
+                              to="#."
                               data-toggle="modal"
                               data-target="#deleteModal"
-                              class="btn btn-danger btn-sm m-t-10"
+                              className="btn btn-danger btn-sm m-t-10"
                             >
                               Disapprove
-                            </a>
+                            </Link>
                           </td>
                         </tr>
                       </tbody>
@@ -102,57 +103,57 @@ const Notifications = () => {
           </div>
 
           <div>
-            <ul class="pagination">
-              <li class="page-item disabled">
-                <a class="page-link" href="#" tabindex="-1">
+            <ul className="pagination">
+              <li className="page-item disabled">
+                <Link className="page-link" to="#" tabindex="-1">
                   Previous
-                </a>
+                </Link>
               </li>
-              <li class="page-item">
-                <a class="page-link" href="#">
+              <li className="page-item">
+                <Link className="page-link" to="#">
                   1
-                </a>
+                </Link>
               </li>
-              <li class="page-item active">
-                <a class="page-link" href="#">
-                  2 <span class="sr-only">(current)</span>
-                </a>
+              <li className="page-item active">
+                <Link className="page-link" to="#">
+                  2 <span className="sr-only">(current)</span>
+                </Link>
               </li>
-              <li class="page-item">
-                <a class="page-link" href="#">
+              <li className="page-item">
+                <Link className="page-link" to="#">
                   3
-                </a>
+                </Link>
               </li>
-              <li class="page-item">
-                <a class="page-link" href="#">
+              <li className="page-item">
+                <Link className="page-link" to="#">
                   Next
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
 
           <div
-            class="modal delete_modal fade text-center"
+            className="modal delete_modal fade text-center"
             id="deleteModal"
             tabindex="-1"
             role="dialog"
             aria-labelledby="exampleModalLabel"
             aria-hidden="true"
           >
-            <div class="modal-dialog modal-dialog-centered" role="document">
-              <div class="modal-content">
-                <div class="modal-body">
+            <div className="modal-dialog modal-dialog-centered" role="document">
+              <div className="modal-content">
+                <div className="modal-body">
                   <h4>Are you sure you want to delete this item?</h4>
                 </div>
-                <div class="modal-footer text-center">
+                <div className="modal-footer text-center">
                   <button
                     type="button"
-                    class="btn btn-primary btn-lg"
+                    className="btn btn-primary btn-lg"
                     data-dismiss="modal"
                   >
                     Close
                   </button>
-                  <button type="button" class="btn btn-danger btn-lg">
+                  <button type="button" className="btn btn-danger btn-lg">
                     Delete
                   </button>
                 </div>

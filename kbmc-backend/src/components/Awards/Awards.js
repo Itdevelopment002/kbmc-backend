@@ -153,37 +153,37 @@ const Awards = () => {
 
   return (
     <div>
-      <div class="page-wrapper">
-        <div class="content">
+      <div className="page-wrapper">
+        <div className="content">
           <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item">
+            <ol className="breadcrumb">
+              <li className="breadcrumb-item">
                 <Link to="#.">About KBMC</Link>
               </li>
-              <li class="breadcrumb-item active" aria-current="page">
+              <li className="breadcrumb-item active" aria-current="page">
                 Awards
               </li>
             </ol>
           </nav>
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="card-box">
-                <div class="card-block">
-                  <div class="row">
-                    <div class="col-sm-4 col-3">
-                      <h4 class="page-title">Awards</h4>
+          <div className="row">
+            <div className="col-lg-12">
+              <div className="card-box">
+                <div className="card-block">
+                  <div className="row">
+                    <div className="col-sm-4 col-3">
+                      <h4 className="page-title">Awards</h4>
                     </div>
-                    <div class="col-sm-8 col-9 text-right m-b-20">
+                    <div className="col-sm-8 col-9 text-right m-b-20">
                       <Link
                         to="/add-awards"
-                        class="btn btn-primary btn-rounded float-right"
+                        className="btn btn-primary btn-rounded float-right"
                       >
-                        <i class="fa fa-plus"></i> Add Awards
+                        <i className="fa fa-plus"></i> Add Awards
                       </Link>
                     </div>
                   </div>
-                  <div class="table-responsive">
-                    <table class="table table-bordered m-b-0">
+                  <div className="table-responsive">
+                    <table className="table table-bordered m-b-0">
                       <thead>
                         <tr>
                           <th width="10%">Sr. No.</th>
@@ -202,7 +202,7 @@ const Awards = () => {
                               <td>
                                 <button
                                   onClick={() => openEditModal(item, "award")}
-                                  className="btn btn-success btn-sm m-t-10 mx-1"
+                                  className="btn btn-success btn-sm m-t-10"
                                 >
                                   Edit
                                 </button>
@@ -227,21 +227,21 @@ const Awards = () => {
                       </tbody>
                     </table>
                   </div>
-                  <div class="row m-t-50">
-                    <div class="col-sm-4 col-3">
-                      <h4 class="page-title">Award Images</h4>
+                  <div className="row m-t-50">
+                    <div className="col-sm-4 col-3">
+                      <h4 className="page-title">Award Images</h4>
                     </div>
-                    <div class="col-sm-8 col-9 text-right m-b-20">
+                    <div className="col-sm-8 col-9 text-right m-b-20">
                       <Link
                         to="/add-award-images"
-                        class="btn btn-primary btn-rounded float-right"
+                        className="btn btn-primary btn-rounded float-right"
                       >
-                        <i class="fa fa-plus"></i> Add Award Images
+                        <i className="fa fa-plus"></i> Add Award Images
                       </Link>
                     </div>
                   </div>
-                  <div class="table-responsive m-t-10">
-                    <table class="table table-bordered m-b-0">
+                  <div className="table-responsive m-t-10">
+                    <table className="table table-bordered m-b-0">
                       <thead>
                         <tr>
                           <th width="10%">Sr. No.</th>
